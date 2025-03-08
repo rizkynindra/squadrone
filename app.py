@@ -3,6 +3,8 @@ import os
 import torch
 import streamlit
 
+torch.classes.__path__ = [os.path.join(torch.__path__[0], torch.classes.__file__)]
+
 # or simply:
 torch.classes.__path__ = []
 
