@@ -1,0 +1,91 @@
+('D:\\SIDE\\MACHINE LEARNING '
+ 'PROJECT\\squadrone\\build\\Squadrone\\Squadrone.pkg',
+ {'BINARY': True,
+  'DATA': True,
+  'EXECUTABLE': True,
+  'EXTENSION': True,
+  'PYMODULE': True,
+  'PYSOURCE': True,
+  'PYZ': False,
+  'SPLASH': True,
+  'SYMLINK': False},
+ [('pyi-contents-directory _internal', '', 'OPTION'),
+  ('PYZ-00.pyz',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\build\\Squadrone\\PYZ-00.pyz',
+   'PYZ'),
+  ('struct',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\build\\Squadrone\\localpycs\\struct.pyc',
+   'PYMODULE'),
+  ('pyimod01_archive',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\build\\Squadrone\\localpycs\\pyimod01_archive.pyc',
+   'PYMODULE'),
+  ('pyimod02_importers',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\build\\Squadrone\\localpycs\\pyimod02_importers.pyc',
+   'PYMODULE'),
+  ('pyimod03_ctypes',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\build\\Squadrone\\localpycs\\pyimod03_ctypes.pyc',
+   'PYMODULE'),
+  ('pyimod04_pywin32',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\build\\Squadrone\\localpycs\\pyimod04_pywin32.pyc',
+   'PYMODULE'),
+  ('pyiboot01_bootstrap',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
+   'PYSOURCE'),
+  ('pyi_rth_multiprocessing',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_multiprocessing.py',
+   'PYSOURCE'),
+  ('pyi_rth_pkgutil',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pkgutil.py',
+   'PYSOURCE'),
+  ('pyi_rth_inspect',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
+   'PYSOURCE'),
+  ('pyi_rth_pkgres',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pkgres.py',
+   'PYSOURCE'),
+  ('pyi_rth_mplconfig',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_mplconfig.py',
+   'PYSOURCE'),
+  ('pyi_rth_setuptools',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_setuptools.py',
+   'PYSOURCE'),
+  ('pyi_rth_traitlets',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\rthooks\\pyi_rth_traitlets.py',
+   'PYSOURCE'),
+  ('pyi_rth_pywintypes',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\rthooks\\pyi_rth_pywintypes.py',
+   'PYSOURCE'),
+  ('pyi_rth_pythoncom',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\rthooks\\pyi_rth_pythoncom.py',
+   'PYSOURCE'),
+  ('pyi_rth__tkinter',
+   'D:\\SIDE\\MACHINE LEARNING '
+   'PROJECT\\squadrone\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth__tkinter.py',
+   'PYSOURCE'),
+  ('tmpuetq4nq8',
+   'C:\\Users\\User\\AppData\\Local\\Temp\\tmpuetq4nq8.py',
+   'PYSOURCE')],
+ 'python310.dll',
+ True,
+ False,
+ False,
+ [],
+ None,
+ None,
+ None)
