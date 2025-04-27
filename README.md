@@ -7,3 +7,7 @@ streamlit-desktop-app build app.py --name Squadrone --pyinstaller-options --add-
 
 1. download this git as .zip or git clone
 2. run Squadrone.exe from directory dist/Squadrone/Squadrone.exe
+
+# Docker
+
+1. docker build .

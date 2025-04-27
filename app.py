@@ -3,6 +3,9 @@ import os
 import torch
 import streamlit
 import sys
+from PyInstaller.utils.hooks import copy_metadata
+
+datas = copy_metadata("streamlit")
 
 torch.classes.__path__ = [os.path.join(torch.__path__[0], torch.classes.__file__)]
 
