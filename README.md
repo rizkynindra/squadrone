@@ -1,6 +1,6 @@
 # squadrone
 
-[![apa ni](https://github.com/rizkynindra/squadrone/blob/main/result/01.mp4)]
+[![Result](https://github.com/rizkynindra/squadrone/blob/main/result/01.mp4)]
 
 Squadrone is an object-detection project based on captured video from Drone. 
 The purpose of this project is to detect malicious object on the parking area. 
