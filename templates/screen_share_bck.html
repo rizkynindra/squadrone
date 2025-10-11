@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squadrone Screen Sharing Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .video-container {
+            margin: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        video {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            max-width: 100%;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .status {
+            text-align: center;
+            color: #666;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        .detection-info {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .fps-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Squadrone Screen Sharing Detection</h1>
+
+        <div class="controls">
+            <button id="startButton">Start Screen Share</button>
+            <button id="stopButton" disabled>Stop Screen Share</button>
+            <button id="startDetectionButton" disabled>Start Detection</button>
+            <button id="pauseDetectionButton" disabled>Pause Detection</button>
+        </div>
+
+        <div class="status" id="status">Ready to share screen</div>
+
+        <div class="video-container">
+            <video id="screenVideo" autoplay playsinline muted></video>
+            <canvas id="detectionCanvas"></canvas>
+            <div id="fpsCounter" class="fps-counter">0 FPS</div>
+        </div>
+
+        <div class="detection-info" id="detectionResults">
+            <h3>Detection Results</h3>
+            <p>No detection performed yet.</p>
+        </div>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const startDetectionButton = document.getElementById('startDetectionButton');
+        const pauseDetectionButton = document.getElementById('pauseDetectionButton');
+        const screenVideo = document.getElementById('screenVideo');
+        const statusElement = document.getElementById('status');
+        const detectionCanvas = document.getElementById('detectionCanvas');
+        const detectionResults = document.getElementById('detectionResults');
+        const fpsCounter = document.getElementById('fpsCounter');
+
+        let mediaStream = null;
+        let capturedFrame = null;
+        let detectionActive = false;
+        let detectionInProgress = false;
+        let animationFrameId = null;
+        let lastDetectionTime = 0;
+        let frameCount = 0;
+        let lastFpsUpdateTime = 0;
+
+        // Detection throttle settings
+        const MIN_DETECTION_INTERVAL = 100; // ms between detection requests
+
+        startButton.addEventListener('click', async () => {
+            try {
+                statusElement.textContent = 'Requesting screen access...';
+
+                // Request screen capture
+                mediaStream = await navigator.mediaDevices.getDisplayMedia({
+                    video: {
+                        cursor: "always"
+                    },
+                    audio: false
+                });
+
+                // Connect the media stream to the video element
+                screenVideo.srcObject = mediaStream;
+
+                // Wait for video to be loaded
+                screenVideo.onloadedmetadata = () => {
+                    // Set canvas dimensions to match video
+                    detectionCanvas.width = screenVideo.videoWidth;
+                    detectionCanvas.height = screenVideo.videoHeight;
+                };
+
+                // Enable buttons
+                startButton.disabled = true;
+                stopButton.disabled = false;
+                startDetectionButton.disabled = false;
+
+                statusElement.textContent = 'Screen sharing active';
+
+                // Listen for the end of stream
+                mediaStream.getVideoTracks()[0].addEventListener('ended', () => {
+                    stopScreenSharing();
+                });
+
+            } catch (error) {
+                console.error('Error accessing screen:', error);
+                statusElement.textContent = `Error: ${error.message || 'Could not access screen'}`;
+            }
+        });
+
+        stopButton.addEventListener('click', stopScreenSharing);
+
+        function stopScreenSharing() {
+            stopDetection();
+
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+                screenVideo.srcObject = null;
+            }
+
+            startButton.disabled = false;
+            stopButton.disabled = true;
+            startDetectionButton.disabled = true;
+            pauseDetectionButton.disabled = true;
+            statusElement.textContent = 'Screen sharing stopped';
+        }
+
+        startDetectionButton.addEventListener('click', startDetection);
+        pauseDetectionButton.addEventListener('click', pauseDetection);
+
+        function startDetection() {
+            if (!screenVideo.srcObject) {
+                statusElement.textContent = 'No video stream available';
+                return;
+            }
+
+            detectionActive = true;
+            startDetectionButton.disabled = true;
+            pauseDetectionButton.disabled = false;
+            statusElement.textContent = 'Real-time detection active';
+
+            // Start the detection loop
+            lastFpsUpdateTime = performance.now();
+            frameCount = 0;
+            detectLoop();
+        }
+
+        function pauseDetection() {
+            detectionActive = false;
+            startDetectionButton.disabled = false;
+            pauseDetectionButton.disabled = true;
+            statusElement.textContent = 'Detection paused';
+
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+        }
+
+        function stopDetection() {
+            detectionActive = false;
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+        }
+
+        function captureVideoFrame() {
+            if (!screenVideo.srcObject) {
+                return false;
+            }
+
+            const canvas = detectionCanvas;
+            const ctx = canvas.getContext('2d');
+
+            // Draw the current video frame on the canvas
+            ctx.drawImage(screenVideo, 0, 0, canvas.width, canvas.height);
+
+            // Store the captured frame as data URL - use lower quality for better performance
+            capturedFrame = canvas.toDataURL('image/jpeg', 0.7);
+            return true;
+        }
+
+        async function detectLoop() {
+            if (!detectionActive) return;
+
+            // Calculate FPS
+            frameCount++;
+            const now = performance.now();
+            const elapsed = now - lastFpsUpdateTime;
+
+            if (elapsed >= 1000) { // Update FPS once per second
+                const fps = Math.round((frameCount / elapsed) * 1000);
+                fpsCounter.textContent = `${fps} FPS`;
+                frameCount = 0;
+                lastFpsUpdateTime = now;
+            }
+
+            // Check if we should send a new detection request
+            if (!detectionInProgress && now - lastDetectionTime >= MIN_DETECTION_INTERVAL) {
+                if (captureVideoFrame()) {
+                    lastDetectionTime = now;
+                    await detectObjects();
+                }
+            }
+
+            // Continue the loop
+            animationFrameId = requestAnimationFrame(detectLoop);
+        }
+
+        async function detectObjects() {
+            if (!capturedFrame || detectionInProgress) {
+                return;
+            }
+
+            try {
+                detectionInProgress = true;
+
+                // Send the captured frame to your Flask backend
+                const response = await fetch('/detect', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        image: capturedFrame
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Server returned ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Display detection results
+                    displayDetectionResults(result);
+                    drawDetectionBoxes(result.detections);
+                } else {
+                    throw new Error(result.error || 'Detection failed');
+                }
+
+            } catch (error) {
+                console.error('Error in detection:', error);
+                statusElement.textContent = `Error: ${error.message}`;
+                // In case of error, clear the canvas and redraw the video frame
+                const ctx = detectionCanvas.getContext('2d');
+                ctx.clearRect(0, 0, detectionCanvas.width, detectionCanvas.height);
+                ctx.drawImage(screenVideo, 0, 0, detectionCanvas.width, detectionCanvas.height);
+            } finally {
+                detectionInProgress = false;
+            }
+        }
+
+        function displayDetectionResults(result) {
+            let html = '<h3>Detection Results</h3>';
+
+            if (result.detections && result.detections.length) {
+                html += '<ul>';
+                result.detections.forEach(detection => {
+                    html += `<li>${detection.class} (${(detection.confidence * 100).toFixed(2)}%)</li>`;
+                });
+                html += '</ul>';
+            } else {
+                html += '<p>No objects detected.</p>';
+            }
+
+            detectionResults.innerHTML = html;
+        }
+
+        function drawDetectionBoxes(detections) {
+            // if (!detections || !detections.length) return;
+
+            const canvas = detectionCanvas;
+            const ctx = canvas.getContext('2d');
+
+            // Clear previous drawings
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw current video frame
+            ctx.drawImage(screenVideo, 0, 0, canvas.width, canvas.height);
+
+            // Draw detection boxes
+            detections.forEach(detection => {
+                const { box, class: className, confidence } = detection;
+                const [x1, y1, x2, y2] = box;
+
+                ctx.strokeStyle = 'lime';
+                ctx.lineWidth = 3;
+                ctx.strokeRect(x1, y1, x2-x1, y2-y1);
+
+                // Draw label
+                ctx.fillStyle = 'lime';
+                ctx.font = '16px Arial';
+                const label = `${className} ${(confidence * 100).toFixed(1)}%`;
+                const textWidth = ctx.measureText(label).width;
+
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+                ctx.fillRect(x1, y1 - 25, textWidth + 10, 25);
+
+                ctx.fillStyle = 'white';
+                ctx.fillText(label, x1 + 5, y1 - 7);
+            });
+        }
+    </script>
+</body>
+</html>
