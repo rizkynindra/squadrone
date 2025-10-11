@@ -6,6 +6,12 @@ from ultralytics import YOLO
 import io
 from PIL import Image
 import time
+import torch
+
+print(f"PyTorch CUDA available: {torch.cuda.is_available()}")
+print(f"CUDA device count: {torch.cuda.device_count()}")
+if torch.cuda.is_available():
+    print(f"CUDA device name: {torch.cuda.get_device_name(0)}")
 
 app = Flask(__name__)
 
@@ -15,9 +21,10 @@ def serve_audio(filename):
 
 # Load YOLO model
 model = YOLO('model/best_100_fix.pt')
+print(f"YOLO model loaded on device: {model.device}")
 
 # Model configuration
-CONFIDENCE_THRESHOLD = 0.1 # Lower confidence threshold for better detection
+CONFIDENCE_THRESHOLD = 0.3 # Lower confidence threshold for better detection
 IMAGE_SIZE = 320  # Smaller inference size can improve performance
 
 # Human detection tracking
