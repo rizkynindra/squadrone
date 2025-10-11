@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squadrone Screen Sharing Detection</title>
+    <title>Squadrone</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -87,11 +87,30 @@
             border-radius: 3px;
             font-size: 12px;
         }
+        .alarm {
+            background-color: #ff0000;
+            color: white;
+            padding: 15px;
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 4px;
+            display: none;
+        }
+        @keyframes alarm-flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .alarm-active {
+            display: block;
+            animation: alarm-flash 1s infinite;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Squadrone Screen Sharing Detection</h1>
+        <h1>Squadrone v1.0.1</h1>
 
         <div class="controls">
             <button id="startButton">Start Screen Share</button>
@@ -101,6 +120,10 @@
         </div>
 
         <div class="status" id="status">Ready to share screen</div>
+
+        <!-- Alarm sound -->
+        <div class="alarm" id="humanAlarm">ALERT: Human detected for extended period!</div>
+
 
         <div class="video-container">
             <video id="screenVideo" autoplay playsinline muted></video>
@@ -124,6 +147,7 @@
         const detectionCanvas = document.getElementById('detectionCanvas');
         const detectionResults = document.getElementById('detectionResults');
         const fpsCounter = document.getElementById('fpsCounter');
+        const humanAlarm = document.getElementById('humanAlarm');
 
         let mediaStream = null;
         let capturedFrame = null;
@@ -133,7 +157,10 @@
         let lastDetectionTime = 0;
         let frameCount = 0;
         let lastFpsUpdateTime = 0;
+        let alarmActive = false;
 
+        // Add this line for the alarm sound
+        const humanDetectionAudio = new Audio('/audio/enemy_spotted.mp3');
         // Detection throttle settings
         const MIN_DETECTION_INTERVAL = 100; // ms between detection requests
 
@@ -224,6 +251,11 @@
                 cancelAnimationFrame(animationFrameId);
                 animationFrameId = null;
             }
+
+            // Reset alarm
+            if (alarmActive) {
+                resetAlarm();
+            }
         }
 
         function stopDetection() {
@@ -239,10 +271,12 @@
                 return false;
             }
 
-            const canvas = detectionCanvas;
+            const canvas = document.createElement('canvas');
+            canvas.width = detectionCanvas.width;
+            canvas.height = detectionCanvas.height;
             const ctx = canvas.getContext('2d');
 
-            // Draw the current video frame on the canvas
+            // Draw the current video frame on a temporary canvas
             ctx.drawImage(screenVideo, 0, 0, canvas.width, canvas.height);
 
             // Store the captured frame as data URL - use lower quality for better performance
@@ -250,7 +284,7 @@
             return true;
         }
 
-        async function detectLoop() {
+        function detectLoop() {
             if (!detectionActive) return;
 
             // Calculate FPS
@@ -265,11 +299,15 @@
                 lastFpsUpdateTime = now;
             }
 
+            // Update the video display without clearing the bounding boxes
+            const ctx = detectionCanvas.getContext('2d');
+            ctx.drawImage(screenVideo, 0, 0, detectionCanvas.width, detectionCanvas.height);
+
             // Check if we should send a new detection request
             if (!detectionInProgress && now - lastDetectionTime >= MIN_DETECTION_INTERVAL) {
                 if (captureVideoFrame()) {
                     lastDetectionTime = now;
-                    await detectObjects();
+                    detectObjects();
                 }
             }
 
@@ -305,7 +343,12 @@
                 if (result.success) {
                     // Display detection results
                     displayDetectionResults(result);
-                    drawDetectionBoxes(result.detections);
+
+                    // Store the latest detections to be drawn in the detectLoop
+                    latestDetections = result.detections;
+
+                    // Check alarm status from server
+                    handleAlarmStatus(result.alarm);
                 } else {
                     throw new Error(result.error || 'Detection failed');
                 }
@@ -313,13 +356,88 @@
             } catch (error) {
                 console.error('Error in detection:', error);
                 statusElement.textContent = `Error: ${error.message}`;
-                // In case of error, clear the canvas and redraw the video frame
-                const ctx = detectionCanvas.getContext('2d');
-                ctx.clearRect(0, 0, detectionCanvas.width, detectionCanvas.height);
-                ctx.drawImage(screenVideo, 0, 0, detectionCanvas.width, detectionCanvas.height);
             } finally {
                 detectionInProgress = false;
             }
+        }
+
+        // Add a global variable to store latest detections
+        let latestDetections = [];
+
+        function detectLoop() {
+            if (!detectionActive) return;
+
+            // Calculate FPS
+            frameCount++;
+            const now = performance.now();
+            const elapsed = now - lastFpsUpdateTime;
+
+            if (elapsed >= 1000) { // Update FPS once per second
+                const fps = Math.round((frameCount / elapsed) * 1000);
+                fpsCounter.textContent = `${fps} FPS`;
+                frameCount = 0;
+                lastFpsUpdateTime = now;
+            }
+
+            // Clear canvas and update the video display
+            const ctx = detectionCanvas.getContext('2d');
+            ctx.clearRect(0, 0, detectionCanvas.width, detectionCanvas.height);
+            ctx.drawImage(screenVideo, 0, 0, detectionCanvas.width, detectionCanvas.height);
+
+            // Draw detection boxes from the latest results
+            if (latestDetections && latestDetections.length) {
+                drawDetectionBoxes(latestDetections);
+            }
+
+            // Check if we should send a new detection request
+            if (!detectionInProgress && now - lastDetectionTime >= MIN_DETECTION_INTERVAL) {
+                if (captureVideoFrame()) {
+                    lastDetectionTime = now;
+                    detectObjects();
+                }
+            }
+
+            // Continue the loop
+            animationFrameId = requestAnimationFrame(detectLoop);
+        }
+
+        // Add function to handle alarm status
+        function handleAlarmStatus(alarmStatus) {
+            if (alarmStatus.active) {
+                if (!alarmActive) {
+                    triggerAlarm();
+                }
+            } else {
+                if (alarmActive) {
+                    resetAlarm();
+                }
+            }
+        }
+
+        function triggerAlarm() {
+            alarmActive = true;
+            humanAlarm.classList.add('alarm-active');
+
+            // Play alarm sound
+            humanDetectionAudio.play().catch(err => console.log('Audio play error:', err));
+
+            // Update status
+            // statusElement.textContent = 'ALERT: Human detected!';
+        }
+
+        function resetAlarm() {
+            alarmActive = false;
+            humanAlarm.classList.remove('alarm-active');
+            humanDetectionAudio.pause();
+            humanDetectionAudio.currentTime = 0;
+
+            // Reset on server side too
+            fetch('/reset_alarm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).catch(err => console.log('Error resetting alarm on server:', err));
         }
 
         function displayDetectionResults(result) {
@@ -339,16 +457,12 @@
         }
 
         function drawDetectionBoxes(detections) {
-            // if (!detections || !detections.length) return;
+            if (!detections || !detections.length) return;
 
             const canvas = detectionCanvas;
             const ctx = canvas.getContext('2d');
 
-            // Clear previous drawings
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Draw current video frame
-            ctx.drawImage(screenVideo, 0, 0, canvas.width, canvas.height);
+            // No need to clear or redraw the video frame here, that's done in detectLoop
 
             // Draw detection boxes
             detections.forEach(detection => {
@@ -372,6 +486,48 @@
                 ctx.fillText(label, x1 + 5, y1 - 7);
             });
         }
+
+
+<!--        function drawDetectionBoxes(detections) {-->
+<!--            // if (!detections || !detections.length) return;-->
+
+<!--            const canvas = detectionCanvas;-->
+<!--            const ctx = canvas.getContext('2d');-->
+
+<!--            // Clear previous drawings-->
+<!--            ctx.clearRect(0, 0, canvas.width, canvas.height);-->
+
+<!--            // Draw current video frame-->
+<!--            ctx.drawImage(screenVideo, 0, 0, canvas.width, canvas.height);-->
+
+<!--            // Draw detection boxes only for humans-->
+<!--            if (detections && detections.length) {-->
+<!--                detections.forEach(detection => {-->
+<!--                    const { box, class: className, confidence } = detection;-->
+
+<!--                    // Only draw boxes for human/person detections-->
+<!--                    if (className.toLowerCase() === 'person' || className.toLowerCase() === 'human') {-->
+<!--                        const [x1, y1, x2, y2] = box;-->
+
+<!--                        // Red color for humans-->
+<!--                        ctx.strokeStyle = 'red';-->
+<!--                        ctx.lineWidth = 3;-->
+<!--                        ctx.strokeRect(x1, y1, x2-x1, y2-y1);-->
+
+<!--                        // Draw label-->
+<!--                        ctx.font = '16px Arial';-->
+<!--                        const label = `${className} ${(confidence * 100).toFixed(1)}%`;-->
+<!--                        const textWidth = ctx.measureText(label).width;-->
+
+<!--                        ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';-->
+<!--                        ctx.fillRect(x1, y1 - 25, textWidth + 10, 25);-->
+
+<!--                        ctx.fillStyle = 'white';-->
+<!--                        ctx.fillText(label, x1 + 5, y1 - 7);-->
+<!--                    }-->
+<!--                });-->
+<!--            }-->
+<!--        }-->
     </script>
 </body>
 </html>

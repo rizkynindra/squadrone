@@ -21,11 +21,14 @@ def serve_audio(filename):
 
 # Load YOLO model
 model = YOLO('model/best_100_fix.pt')
+
+#use GPU
+model.to('cuda')
 print(f"YOLO model loaded on device: {model.device}")
 
 # Model configuration
 CONFIDENCE_THRESHOLD = 0.3 # Lower confidence threshold for better detection
-IMAGE_SIZE = 320  # Smaller inference size can improve performance
+IMAGE_SIZE = 480  # Smaller inference size can improve performance
 
 # Human detection tracking
 human_detection_state = {
@@ -38,7 +41,7 @@ human_detection_state = {
 
 @app.route('/')
 def index():
-    return render_template('screen_share.html')
+    return render_template('screen_share_bck.html')
 
 
 @app.route('/detect', methods=['POST'])
