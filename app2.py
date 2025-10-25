@@ -14,6 +14,7 @@ if torch.cuda.is_available():
     print(f"CUDA device name: {torch.cuda.get_device_name(0)}")
 
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # Limit uploads to 5MB
 
 @app.route('/audio/<path:filename>')
 def serve_audio(filename):
@@ -23,8 +24,8 @@ def serve_audio(filename):
 model = YOLO('model/best_100_fix.pt')
 
 #use GPU
-model.to('cuda')
-print(f"YOLO model loaded on device: {model.device}")
+# model.to('cuda')
+# print(f"YOLO model loaded on device: {model.device}")
 
 # Model configuration
 CONFIDENCE_THRESHOLD = 0.3 # Lower confidence threshold for better detection
@@ -41,7 +42,7 @@ human_detection_state = {
 
 @app.route('/')
 def index():
-    return render_template('screen_share_bck.html')
+    return render_template('screen_share.html')
 
 
 @app.route('/detect', methods=['POST'])
