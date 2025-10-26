@@ -14,7 +14,7 @@ if torch.cuda.is_available():
     print(f"CUDA device name: {torch.cuda.get_device_name(0)}")
 
 app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # Limit uploads to 5MB
+app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024  # Limit uploads to 5MB
 
 @app.route('/audio/<path:filename>')
 def serve_audio(filename):
