@@ -21,7 +21,7 @@ def serve_audio(filename):
     return send_from_directory('audio', filename)
 
 # Load YOLO model
-model = YOLO('model/best_100_fix.pt')
+model = YOLO('model/best_26102025.pt')
 
 #use GPU
 # model.to('cuda')
