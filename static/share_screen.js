@@ -20,7 +20,7 @@ let lastFpsUpdateTime = 0;
 let alarmActive = false;
 
 // Add this line for the alarm sound
-const humanDetectionAudio = new Audio('/audio/enemy_spotted.mp3');
+const humanDetectionAudio = new Audio('/audio/Danger Alarm.mp3');
 // Detection throttle settings
 const MIN_DETECTION_INTERVAL = 100; // ms between detection requests
 
