@@ -8,6 +8,7 @@ const detectionCanvas = document.getElementById('detectionCanvas');
 const detectionResults = document.getElementById('detectionResults');
 const fpsCounter = document.getElementById('fpsCounter');
 const humanAlarm = document.getElementById('humanAlarm');
+const toggleBoundingBoxButton = document.getElementById('toggleBoundingBoxButton');
 
 let mediaStream = null;
 let capturedFrame = null;
@@ -18,42 +19,41 @@ let lastDetectionTime = 0;
 let frameCount = 0;
 let lastFpsUpdateTime = 0;
 let alarmActive = false;
+let alarmTimeoutId = null;
+let showAllBoundingBoxes = false;
+let latestDetections = [];
 
-// Add this line for the alarm sound
+toggleBoundingBoxButton.addEventListener('click', function() {
+    showAllBoundingBoxes = !showAllBoundingBoxes;
+    this.textContent = showAllBoundingBoxes ? 'Show Only "manusia"' : 'Show All';
+});
+
 const humanDetectionAudio = new Audio('/audio/Danger Alarm.mp3');
-// Detection throttle settings
 const MIN_DETECTION_INTERVAL = 100; // ms between detection requests
 
 startButton.addEventListener('click', async () => {
     try {
         statusElement.textContent = 'Requesting screen access...';
 
-        // Request screen capture
         mediaStream = await navigator.mediaDevices.getDisplayMedia({
-            video: {
-                cursor: "always"
-            },
+            video: { cursor: "always" },
             audio: false
         });
 
-        // Connect the media stream to the video element
         screenVideo.srcObject = mediaStream;
 
-        // Wait for video to be loaded
         screenVideo.onloadedmetadata = () => {
-            // Set canvas dimensions to match video
             detectionCanvas.width = screenVideo.videoWidth;
             detectionCanvas.height = screenVideo.videoHeight;
         };
 
-        // Enable buttons
         startButton.disabled = true;
         stopButton.disabled = false;
         startDetectionButton.disabled = false;
+        toggleBoundingBoxButton.disabled = false;
 
         statusElement.textContent = 'Screen sharing active';
 
-        // Listen for the end of stream
         mediaStream.getVideoTracks()[0].addEventListener('ended', () => {
             stopScreenSharing();
         });
@@ -78,6 +78,7 @@ function stopScreenSharing() {
     stopButton.disabled = true;
     startDetectionButton.disabled = true;
     pauseDetectionButton.disabled = true;
+    toggleBoundingBoxButton.disabled = true;
     statusElement.textContent = 'Screen sharing stopped';
 }
 
@@ -93,9 +94,9 @@ function startDetection() {
     detectionActive = true;
     startDetectionButton.disabled = true;
     pauseDetectionButton.disabled = false;
+    toggleBoundingBoxButton.disabled = false;
     statusElement.textContent = 'Real-time detection active';
 
-    // Start the detection loop
     lastFpsUpdateTime = performance.now();
     frameCount = 0;
     detectLoop();
@@ -112,7 +113,6 @@ function pauseDetection() {
         animationFrameId = null;
     }
 
-    // Reset alarm
     if (alarmActive) {
         resetAlarm();
     }
@@ -135,11 +135,7 @@ function captureVideoFrame() {
     canvas.width = detectionCanvas.width;
     canvas.height = detectionCanvas.height;
     const ctx = canvas.getContext('2d');
-
-    // Draw the current video frame on a temporary canvas
     ctx.drawImage(screenVideo, 0, 0, canvas.width, canvas.height);
-
-    // Store the captured frame as data URL - use lower quality for better performance
     capturedFrame = canvas.toDataURL('image/jpeg', 0.7);
     return true;
 }
@@ -152,15 +148,10 @@ async function detectObjects() {
     try {
         detectionInProgress = true;
 
-        // Send the captured frame to your Flask backend
         const response = await fetch('/detect', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                image: capturedFrame
-            })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: capturedFrame })
         });
 
         if (!response.ok) {
@@ -170,13 +161,8 @@ async function detectObjects() {
         const result = await response.json();
 
         if (result.success) {
-            // Display detection results
             displayDetectionResults(result);
-
-            // Store the latest detections to be drawn in the detectLoop
             latestDetections = result.detections;
-
-            // Check alarm status from server
             handleAlarmStatus(result.alarm);
         } else {
             throw new Error(result.error || 'Detection failed');
@@ -190,35 +176,28 @@ async function detectObjects() {
     }
 }
 
-// Add a global variable to store latest detections
-let latestDetections = [];
-
 function detectLoop() {
     if (!detectionActive) return;
 
-    // Calculate FPS
     frameCount++;
     const now = performance.now();
     const elapsed = now - lastFpsUpdateTime;
 
-    if (elapsed >= 1000) { // Update FPS once per second
+    if (elapsed >= 1000) {
         const fps = Math.round((frameCount / elapsed) * 1000);
         fpsCounter.textContent = `${fps} FPS`;
         frameCount = 0;
         lastFpsUpdateTime = now;
     }
 
-    // Clear canvas and update the video display
     const ctx = detectionCanvas.getContext('2d');
     ctx.clearRect(0, 0, detectionCanvas.width, detectionCanvas.height);
     ctx.drawImage(screenVideo, 0, 0, detectionCanvas.width, detectionCanvas.height);
 
-    // Draw detection boxes from the latest results
     if (latestDetections && latestDetections.length) {
         drawDetectionBoxes(latestDetections);
     }
 
-    // Check if we should send a new detection request
     if (!detectionInProgress && now - lastDetectionTime >= MIN_DETECTION_INTERVAL) {
         if (captureVideoFrame()) {
             lastDetectionTime = now;
@@ -226,11 +205,9 @@ function detectLoop() {
         }
     }
 
-    // Continue the loop
     animationFrameId = requestAnimationFrame(detectLoop);
 }
 
-// Add function to handle alarm status
 function handleAlarmStatus(alarmStatus) {
     if (alarmStatus.active) {
         if (!alarmActive) {
@@ -244,11 +221,17 @@ function handleAlarmStatus(alarmStatus) {
 }
 
 function triggerAlarm() {
+    if (alarmActive) return;
     alarmActive = true;
     humanAlarm.classList.add('alarm-active');
-
-    // Play alarm sound
+    humanDetectionAudio.currentTime = 0;
     humanDetectionAudio.play().catch(err => console.log('Audio play error:', err));
+
+    // stop alarm after 3 seconds
+    if (alarmTimeoutId) clearTimeout(alarmTimeoutId);
+    alarmTimeoutId = setTimeout(() => {
+        resetAlarm();
+    }, 3000);
 }
 
 function resetAlarm() {
@@ -256,27 +239,37 @@ function resetAlarm() {
     humanAlarm.classList.remove('alarm-active');
     humanDetectionAudio.pause();
     humanDetectionAudio.currentTime = 0;
+    if (alarmTimeoutId) {
+        clearTimeout(alarmTimeoutId);
+        alarmTimeoutId = null;
+    }
 
-    // Reset on server side too
     fetch('/reset_alarm', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        headers: { 'Content-Type': 'application/json' }
     }).catch(err => console.log('Error resetting alarm on server:', err));
 }
 
 function displayDetectionResults(result) {
     let html = '<h3>Detection Results</h3>';
 
-    if (result.detections && result.detections.length) {
+    const manusiaDetections = result.detections
+        ? result.detections.filter(detection => detection.class === 'manusia')
+        : [];
+
+    const now = new Date();
+    const pad = n => n.toString().padStart(2, '0');
+    const detection_time = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+
+
+    if (manusiaDetections.length) {
         html += '<ul>';
-        result.detections.forEach(detection => {
-            html += `<li>${detection.class} (${(detection.confidence * 100).toFixed(2)}%)</li>`;
+        manusiaDetections.forEach(detection => {
+            html += `Detected <strong>${detection.class} at ${detection_time} with confidence (${(detection.confidence * 100).toFixed(2)}%)</strong>`;
         });
         html += '</ul>';
     } else {
-        html += '<p>No objects detected.</p>';
+        html += '<p>No manusia detected.</p>';
     }
 
     detectionResults.innerHTML = html;
@@ -288,25 +281,24 @@ function drawDetectionBoxes(detections) {
     const canvas = detectionCanvas;
     const ctx = canvas.getContext('2d');
 
-    // Draw detection boxes
     detections.forEach(detection => {
-        const { box, class: className, confidence } = detection;
-        const [x1, y1, x2, y2] = box;
+        if (showAllBoundingBoxes || detection.class === 'manusia') {
+            const { box, class: className, confidence } = detection;
+            const [x1, y1, x2, y2] = box;
 
-        ctx.strokeStyle = 'lime';
-        ctx.lineWidth = 3;
-        ctx.strokeRect(x1, y1, x2-x1, y2-y1);
+            ctx.strokeStyle = 'lime';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
 
-        // Draw label
-        ctx.fillStyle = 'lime';
-        ctx.font = '16px Arial';
-        const label = `${className} ${(confidence * 100).toFixed(1)}%`;
-        const textWidth = ctx.measureText(label).width;
+            ctx.font = '16px Arial';
+            const label = `${className} ${(confidence * 100).toFixed(1)}%`;
+            const textWidth = ctx.measureText(label).width;
 
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-        ctx.fillRect(x1, y1 - 25, textWidth + 10, 25);
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+            ctx.fillRect(x1, y1 - 25, textWidth + 10, 25);
 
-        ctx.fillStyle = 'white';
-        ctx.fillText(label, x1 + 5, y1 - 7);
+            ctx.fillStyle = 'white';
+            ctx.fillText(label, x1 + 5, y1 - 7);
+        }
     });
 }

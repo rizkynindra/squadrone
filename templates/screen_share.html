@@ -9,26 +9,26 @@
 </head>
 <body>
     <div class="container">
-        <h1>Squadron v1.0.1</h1>
+        <h1>Squadron v1.0.2</h1>
 
         <div class="controls">
             <button id="startButton">Start Share Screen</button>
             <button id="stopButton" disabled>Stop Share Screen</button>
             <button id="startDetectionButton" disabled>Start Detection</button>
             <button id="pauseDetectionButton" disabled>Pause Detection</button>
+            <button id="toggleBoundingBoxButton" disabled>Show All Object</button>
         </div>
 
         <div class="status" id="status">Ready to share screen</div>
 
-        <!-- Alarm sound -->
-        <div class="alarm" id="humanAlarm">ALERT: Human detected for extended period!</div>
-
-
         <div class="video-container">
-            <video id="screenVideo" autoplay playsinline muted></video>
+        <video id="screenVideo" autoplay playsinline muted></video>
             <canvas id="detectionCanvas"></canvas>
             <div id="fpsCounter" class="fps-counter">0 FPS</div>
         </div>
+
+        <!-- Alarm sound -->
+        <div class="alarm" id="humanAlarm">ALERT: Human detected for extended period!</div>
 
         <div class="detection-info" id="detectionResults">
             <h3>Detection Results</h3>

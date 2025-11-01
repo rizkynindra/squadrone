@@ -37,7 +37,7 @@ model = YOLO('model/best_26102025.pt')
 # print(f"YOLO model loaded on device: {model.device}")
 
 # Model configuration
-CONFIDENCE_THRESHOLD = 0.25 # Lower confidence threshold for better detection
+CONFIDENCE_THRESHOLD = 0.3 # Lower confidence threshold for better detection
 IMAGE_SIZE = 480  # Smaller inference size can improve performance
 
 # Human detection tracking
@@ -97,18 +97,19 @@ def detect():
                 x1, y1, x2, y2 = map(int, box)
                 class_name = model.names[int(cls)]
 
+                # save to log if manusia detected
                 if class_name.lower() == 'manusia':
                     detection_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                     logging.info(f"Detected 'manusia' at {detection_time} with confidence {score:.4f}")
 
                 # Check if this is a human/person detection
-                if class_name.lower() in ['manusia', 'manusia']:
+                if class_name.lower() == 'manusia':
                     human_detected = True
 
-                    detections.append({
-                        'box': [x1, y1, x2, y2],
-                        'class': class_name,
-                        'confidence': float(score)
+                detections.append({
+                    'box': [x1, y1, x2, y2],
+                    'class': class_name,
+                    'confidence': float(score)
                 })
 
         # Update human detection state

@@ -1,10 +1,15 @@
-# squadron v1.0.2
+# squadron v1.0.3
 
 Changelog v1.0.2:
 - Improved detection accuracy for small objects.
 - add log file.
 - Optimized for windows using waitress-serve.
 - Fix alarm sound.
+
+Changelog v1.0.3:
+- show log in application if 'manusia' detected.
+- set alarm sound ringing for 3 seconds.
+- Add toogle button to enable/disable all bounding boxes.
 
 [![Result](https://github.com/rizkynindra/squadrone/blob/main/result/01.mp4)]
 
