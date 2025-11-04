@@ -22,14 +22,15 @@ let alarmActive = false;
 let alarmTimeoutId = null;
 let showAllBoundingBoxes = false;
 let latestDetections = [];
+let manusiaLogs = [];
+
+const humanDetectionAudio = new Audio('/audio/star_trek.mp3');
+const MIN_DETECTION_INTERVAL = 100; // ms between detection requests
 
 toggleBoundingBoxButton.addEventListener('click', function() {
     showAllBoundingBoxes = !showAllBoundingBoxes;
     this.textContent = showAllBoundingBoxes ? 'Show Only "manusia"' : 'Show All';
 });
-
-const humanDetectionAudio = new Audio('/audio/Danger Alarm.mp3');
-const MIN_DETECTION_INTERVAL = 100; // ms between detection requests
 
 startButton.addEventListener('click', async () => {
     try {
@@ -163,7 +164,11 @@ async function detectObjects() {
         if (result.success) {
             displayDetectionResults(result);
             latestDetections = result.detections;
-            handleAlarmStatus(result.alarm);
+            // Alarm logic: check for 'manusia' detection
+            const manusiaDetected = result.detections && result.detections.some(d => d.class === 'manusia');
+            if (manusiaDetected) {
+                playAlarmFor3Seconds();
+            }
         } else {
             throw new Error(result.error || 'Detection failed');
         }
@@ -208,48 +213,23 @@ function detectLoop() {
     animationFrameId = requestAnimationFrame(detectLoop);
 }
 
-function handleAlarmStatus(alarmStatus) {
-    if (alarmStatus.active) {
-        if (!alarmActive) {
-            triggerAlarm();
-        }
-    } else {
-        if (alarmActive) {
-            resetAlarm();
-        }
-    }
-}
+// Alarm logic: always play for 3 seconds per detection
+function playAlarmFor3Seconds() {
+    if (alarmTimeoutId) return; // Prevent overlapping alarms
 
-function triggerAlarm() {
-    if (alarmActive) return;
-    alarmActive = true;
     humanAlarm.classList.add('alarm-active');
     humanDetectionAudio.currentTime = 0;
     humanDetectionAudio.play().catch(err => console.log('Audio play error:', err));
 
-    // stop alarm after 3 seconds
-    if (alarmTimeoutId) clearTimeout(alarmTimeoutId);
     alarmTimeoutId = setTimeout(() => {
-        resetAlarm();
+        humanAlarm.classList.remove('alarm-active');
+        humanDetectionAudio.pause();
+        humanDetectionAudio.currentTime = 0;
+        alarmTimeoutId = null;
     }, 3000);
 }
 
-function resetAlarm() {
-    alarmActive = false;
-    humanAlarm.classList.remove('alarm-active');
-    humanDetectionAudio.pause();
-    humanDetectionAudio.currentTime = 0;
-    if (alarmTimeoutId) {
-        clearTimeout(alarmTimeoutId);
-        alarmTimeoutId = null;
-    }
-
-    fetch('/reset_alarm', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-    }).catch(err => console.log('Error resetting alarm on server:', err));
-}
-
+// Display detection results, focusing on 'manusia' class array version
 function displayDetectionResults(result) {
     let html = '<h3>Detection Results</h3>';
 
@@ -261,11 +241,17 @@ function displayDetectionResults(result) {
     const pad = n => n.toString().padStart(2, '0');
     const detection_time = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
 
-
     if (manusiaDetections.length) {
-        html += '<ul>';
         manusiaDetections.forEach(detection => {
-            html += `Detected <strong>${detection.class} at ${detection_time} with confidence (${(detection.confidence * 100).toFixed(2)}%)</strong>`;
+            const log = `Detected <strong>${detection.class} at ${detection_time} with confidence (${(detection.confidence * 100).toFixed(2)}%)</strong>`;
+            manusiaLogs.push(log);
+        });
+    }
+
+    if (manusiaLogs.length) {
+        html += '<ul>';
+        manusiaLogs.forEach(log => {
+            html += `<li>${log}</li>`;
         });
         html += '</ul>';
     } else {

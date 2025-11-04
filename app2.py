@@ -9,6 +9,7 @@ import time
 import torch
 import logging
 from datetime import datetime
+import requests
 
 # Configure logging for manusia detection
 logging.basicConfig(
@@ -47,7 +48,6 @@ human_detection_state = {
     'last_detection_time': 0,
     'detection_threshold': 0.05  # 1 seconds
 }
-
 
 @app.route('/')
 def index():

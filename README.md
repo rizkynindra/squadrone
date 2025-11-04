@@ -10,6 +10,7 @@ Changelog v1.0.3:
 - show log in application if 'manusia' detected.
 - set alarm sound ringing for 3 seconds.
 - Add toogle button to enable/disable all bounding boxes.
+- always show log when 'manusia' detected.
 
 [![Result](https://github.com/rizkynindra/squadrone/blob/main/result/01.mp4)]
 
@@ -20,4 +21,4 @@ The purpose of this project is to detect malicious object on the parking area.
 
 1. run pip install -r requirements.txt (for the first time)
 2. run squadron.bat or squadron_.bat
-
+3. if manual, you can run python3 main.py or waitress-serve --listen=*:5000 app2:app
