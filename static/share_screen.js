@@ -168,8 +168,15 @@ async function detectObjects() {
             const manusiaDetected = result.detections && result.detections.some(d => d.class === 'manusia');
             if (manusiaDetected) {
                 playAlarmFor3Seconds();
+                document.getElementById('clearLogButton').disabled = false;
+                document.getElementById('clearLogButton').addEventListener('click', function() {
+                manusiaLogs = [];
+                detectionResults.innerHTML = '<h3>Detection Results</h3><p>No manusia detected.</p>';
+                this.disabled = true;
+                });
             }
         } else {
+            document.getElementById('clearLogButton').disabled = true;
             throw new Error(result.error || 'Detection failed');
         }
 
@@ -226,7 +233,7 @@ function playAlarmFor3Seconds() {
         humanDetectionAudio.pause();
         humanDetectionAudio.currentTime = 0;
         alarmTimeoutId = null;
-    }, 3000);
+    }, 10000);
 }
 
 // Display detection results, focusing on 'manusia' class array version

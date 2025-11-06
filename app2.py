@@ -37,12 +37,12 @@ def serve_audio(filename):
 model = RTDETR('model/best_rtdetr.pt')
 
 #use GPU
-# model.to('cuda')
-# print(f"YOLO model loaded on device: {model.device}")
+model.to('cuda')
+print(f"model loaded on device: {model.device}")
 
 # Model configuration
-CONFIDENCE_THRESHOLD = 0.3 # Lower confidence threshold for better detection
-IMAGE_SIZE = 480  # Smaller inference size can improve performance
+CONFIDENCE_THRESHOLD = 0.4 # Lower confidence threshold for better detection
+IMAGE_SIZE = 320  # Smaller inference size can improve performance
 
 # Human detection tracking
 human_detection_state = {

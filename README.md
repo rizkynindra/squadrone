@@ -6,11 +6,14 @@ Changelog v1.0.3:
 - Add toogle button to enable/disable all bounding boxes.
 - always show log when 'manusia' detected.
 - add RT-DETR model.
+- change confidence level to 0.4 (avoid wrong detection for 'manusia').
+- **add compatibility to use GPU on Windows OS.**
+- add clear log button.
 
 [![Result](https://github.com/rizkynindra/squadrone/blob/main/result/01.mp4)]
 
 Squadrone is an object-detection project based on captured video from Drone. 
-The purpose of this project is to detect malicious object on the parking area. 
+The purpose of this project is to detect malicious object (manusia) on the parking area. 
 
 # how to run
 
