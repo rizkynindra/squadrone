@@ -34,8 +34,8 @@ def serve_audio(filename):
 model = YOLO('model/best_rtdetr.pt')
 
 #use GPU
-model.to('cuda')
-print(f"YOLO model loaded on device: {model.device}")
+# model.to('cuda')
+# print(f"YOLO model loaded on device: {model.device}")
 
 # Model configuration
 CONFIDENCE_THRESHOLD = 0.3 # Lower confidence threshold for better detection
