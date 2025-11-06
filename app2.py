@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify, send_from_directory
 import base64
 import cv2
 import numpy as np
-from ultralytics import YOLO
+from ultralytics import YOLO, RTDETR
 import io
 from PIL import Image
 import time
@@ -31,11 +31,14 @@ def serve_audio(filename):
     return send_from_directory('audio', filename)
 
 # Load YOLO model
-model = YOLO('model/best_rtdetr.pt')
+# model = YOLO('model/best_26102025.pt')
+
+# Load RT-DETR model
+model = RTDETR('model/best_rtdetr.pt')
 
 #use GPU
-# model.to('cuda')
-# print(f"YOLO model loaded on device: {model.device}")
+model.to('cuda')
+print(f"YOLO model loaded on device: {model.device}")
 
 # Model configuration
 CONFIDENCE_THRESHOLD = 0.3 # Lower confidence threshold for better detection

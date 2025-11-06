@@ -5,6 +5,7 @@ Changelog v1.0.3:
 - set alarm sound ringing for 3 seconds.
 - Add toogle button to enable/disable all bounding boxes.
 - always show log when 'manusia' detected.
+- add RT-DETR model.
 
 [![Result](https://github.com/rizkynindra/squadrone/blob/main/result/01.mp4)]
 
