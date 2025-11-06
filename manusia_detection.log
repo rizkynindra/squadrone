@@ -103715,3 +103715,443 @@
 2025-11-06 11:10:36,715 - 127.0.0.1 - - [06/Nov/2025 11:10:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-11-06 11:10:36,715 - 127.0.0.1 - - [06/Nov/2025 11:10:36] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
 2025-11-06 11:10:36,719 - 127.0.0.1 - - [06/Nov/2025 11:10:36] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-06 14:14:32,380 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.26.32.6:5001
+2025-11-06 14:14:32,381 - [33mPress CTRL+C to quit[0m
+2025-11-06 14:14:32,382 -  * Restarting with stat
+2025-11-06 14:14:33,635 -  * Debugger is active!
+2025-11-06 14:14:33,650 -  * Debugger PIN: 278-281-107
+2025-11-06 14:15:05,260 - 127.0.0.1 - - [06/Nov/2025 14:15:05] "GET / HTTP/1.1" 200 -
+2025-11-06 14:15:05,399 - 127.0.0.1 - - [06/Nov/2025 14:15:05] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-06 14:15:05,400 - 127.0.0.1 - - [06/Nov/2025 14:15:05] "GET /static/style.css HTTP/1.1" 200 -
+2025-11-06 14:15:05,695 - 127.0.0.1 - - [06/Nov/2025 14:15:05] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-06 14:15:06,238 - 127.0.0.1 - - [06/Nov/2025 14:15:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-06 14:15:53,014 - Detected 'manusia' at 2025-11-06 14:15:53 with confidence 0.5274
+2025-11-06 14:15:53,015 - Detected 'manusia' at 2025-11-06 14:15:53 with confidence 0.3500
+2025-11-06 14:15:53,021 - 127.0.0.1 - - [06/Nov/2025 14:15:53] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:15:53,046 - 127.0.0.1 - - [06/Nov/2025 14:15:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-06 14:15:53,056 - 127.0.0.1 - - [06/Nov/2025 14:15:53] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-06 14:15:53,938 - Detected 'manusia' at 2025-11-06 14:15:53 with confidence 0.5135
+2025-11-06 14:15:53,938 - Detected 'manusia' at 2025-11-06 14:15:53 with confidence 0.3329
+2025-11-06 14:15:53,939 - 127.0.0.1 - - [06/Nov/2025 14:15:53] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:15:54,538 - Detected 'manusia' at 2025-11-06 14:15:54 with confidence 0.4959
+2025-11-06 14:15:54,539 - Detected 'manusia' at 2025-11-06 14:15:54 with confidence 0.3089
+2025-11-06 14:15:54,539 - 127.0.0.1 - - [06/Nov/2025 14:15:54] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:15:55,203 - Detected 'manusia' at 2025-11-06 14:15:55 with confidence 0.5066
+2025-11-06 14:15:55,204 - Detected 'manusia' at 2025-11-06 14:15:55 with confidence 0.3042
+2025-11-06 14:15:55,204 - 127.0.0.1 - - [06/Nov/2025 14:15:55] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:15:56,059 - Detected 'manusia' at 2025-11-06 14:15:56 with confidence 0.5104
+2025-11-06 14:15:56,059 - Detected 'manusia' at 2025-11-06 14:15:56 with confidence 0.3135
+2025-11-06 14:15:56,061 - 127.0.0.1 - - [06/Nov/2025 14:15:56] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:15:56,924 - Detected 'manusia' at 2025-11-06 14:15:56 with confidence 0.5161
+2025-11-06 14:15:56,924 - Detected 'manusia' at 2025-11-06 14:15:56 with confidence 0.3211
+2025-11-06 14:15:56,925 - 127.0.0.1 - - [06/Nov/2025 14:15:56] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:15:57,679 - Detected 'manusia' at 2025-11-06 14:15:57 with confidence 0.5237
+2025-11-06 14:15:57,679 - Detected 'manusia' at 2025-11-06 14:15:57 with confidence 0.3248
+2025-11-06 14:15:57,682 - 127.0.0.1 - - [06/Nov/2025 14:15:57] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:15:58,395 - Detected 'manusia' at 2025-11-06 14:15:58 with confidence 0.5375
+2025-11-06 14:15:58,395 - Detected 'manusia' at 2025-11-06 14:15:58 with confidence 0.3340
+2025-11-06 14:15:58,396 - 127.0.0.1 - - [06/Nov/2025 14:15:58] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:15:59,097 - Detected 'manusia' at 2025-11-06 14:15:59 with confidence 0.5410
+2025-11-06 14:15:59,097 - Detected 'manusia' at 2025-11-06 14:15:59 with confidence 0.3429
+2025-11-06 14:15:59,098 - 127.0.0.1 - - [06/Nov/2025 14:15:59] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:15:59,780 - Detected 'manusia' at 2025-11-06 14:15:59 with confidence 0.5393
+2025-11-06 14:15:59,780 - Detected 'manusia' at 2025-11-06 14:15:59 with confidence 0.3270
+2025-11-06 14:15:59,781 - 127.0.0.1 - - [06/Nov/2025 14:15:59] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:00,520 - Detected 'manusia' at 2025-11-06 14:16:00 with confidence 0.5140
+2025-11-06 14:16:00,521 - Detected 'manusia' at 2025-11-06 14:16:00 with confidence 0.3034
+2025-11-06 14:16:00,522 - 127.0.0.1 - - [06/Nov/2025 14:16:00] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:01,239 - Detected 'manusia' at 2025-11-06 14:16:01 with confidence 0.5212
+2025-11-06 14:16:01,239 - Detected 'manusia' at 2025-11-06 14:16:01 with confidence 0.3160
+2025-11-06 14:16:01,241 - 127.0.0.1 - - [06/Nov/2025 14:16:01] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:01,895 - Detected 'manusia' at 2025-11-06 14:16:01 with confidence 0.5236
+2025-11-06 14:16:01,896 - Detected 'manusia' at 2025-11-06 14:16:01 with confidence 0.3200
+2025-11-06 14:16:01,897 - 127.0.0.1 - - [06/Nov/2025 14:16:01] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:02,551 - Detected 'manusia' at 2025-11-06 14:16:02 with confidence 0.5312
+2025-11-06 14:16:02,551 - Detected 'manusia' at 2025-11-06 14:16:02 with confidence 0.3326
+2025-11-06 14:16:02,552 - 127.0.0.1 - - [06/Nov/2025 14:16:02] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:03,306 - Detected 'manusia' at 2025-11-06 14:16:03 with confidence 0.4880
+2025-11-06 14:16:03,308 - 127.0.0.1 - - [06/Nov/2025 14:16:03] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:03,982 - Detected 'manusia' at 2025-11-06 14:16:03 with confidence 0.5034
+2025-11-06 14:16:03,983 - 127.0.0.1 - - [06/Nov/2025 14:16:03] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:04,771 - Detected 'manusia' at 2025-11-06 14:16:04 with confidence 0.5015
+2025-11-06 14:16:04,772 - 127.0.0.1 - - [06/Nov/2025 14:16:04] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:05,502 - Detected 'manusia' at 2025-11-06 14:16:05 with confidence 0.5026
+2025-11-06 14:16:05,504 - 127.0.0.1 - - [06/Nov/2025 14:16:05] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:06,263 - Detected 'manusia' at 2025-11-06 14:16:06 with confidence 0.4979
+2025-11-06 14:16:06,264 - Detected 'manusia' at 2025-11-06 14:16:06 with confidence 0.3137
+2025-11-06 14:16:06,267 - 127.0.0.1 - - [06/Nov/2025 14:16:06] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:06,935 - Detected 'manusia' at 2025-11-06 14:16:06 with confidence 0.5212
+2025-11-06 14:16:06,936 - Detected 'manusia' at 2025-11-06 14:16:06 with confidence 0.3226
+2025-11-06 14:16:06,937 - 127.0.0.1 - - [06/Nov/2025 14:16:06] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:07,676 - Detected 'manusia' at 2025-11-06 14:16:07 with confidence 0.4943
+2025-11-06 14:16:07,677 - 127.0.0.1 - - [06/Nov/2025 14:16:07] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:08,320 - Detected 'manusia' at 2025-11-06 14:16:08 with confidence 0.5201
+2025-11-06 14:16:08,320 - Detected 'manusia' at 2025-11-06 14:16:08 with confidence 0.3477
+2025-11-06 14:16:08,321 - 127.0.0.1 - - [06/Nov/2025 14:16:08] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:08,913 - Detected 'manusia' at 2025-11-06 14:16:08 with confidence 0.5206
+2025-11-06 14:16:08,913 - Detected 'manusia' at 2025-11-06 14:16:08 with confidence 0.3123
+2025-11-06 14:16:08,914 - 127.0.0.1 - - [06/Nov/2025 14:16:08] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:09,575 - Detected 'manusia' at 2025-11-06 14:16:09 with confidence 0.5170
+2025-11-06 14:16:09,575 - Detected 'manusia' at 2025-11-06 14:16:09 with confidence 0.3170
+2025-11-06 14:16:09,576 - 127.0.0.1 - - [06/Nov/2025 14:16:09] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:10,306 - Detected 'manusia' at 2025-11-06 14:16:10 with confidence 0.5077
+2025-11-06 14:16:10,306 - Detected 'manusia' at 2025-11-06 14:16:10 with confidence 0.3018
+2025-11-06 14:16:10,307 - 127.0.0.1 - - [06/Nov/2025 14:16:10] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:11,158 - Detected 'manusia' at 2025-11-06 14:16:11 with confidence 0.5282
+2025-11-06 14:16:11,158 - Detected 'manusia' at 2025-11-06 14:16:11 with confidence 0.3133
+2025-11-06 14:16:11,160 - 127.0.0.1 - - [06/Nov/2025 14:16:11] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:11,780 - Detected 'manusia' at 2025-11-06 14:16:11 with confidence 0.5205
+2025-11-06 14:16:11,780 - Detected 'manusia' at 2025-11-06 14:16:11 with confidence 0.3025
+2025-11-06 14:16:11,781 - 127.0.0.1 - - [06/Nov/2025 14:16:11] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:12,434 - Detected 'manusia' at 2025-11-06 14:16:12 with confidence 0.5322
+2025-11-06 14:16:12,434 - Detected 'manusia' at 2025-11-06 14:16:12 with confidence 0.3204
+2025-11-06 14:16:12,435 - 127.0.0.1 - - [06/Nov/2025 14:16:12] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:13,195 - Detected 'manusia' at 2025-11-06 14:16:13 with confidence 0.5095
+2025-11-06 14:16:13,195 - Detected 'manusia' at 2025-11-06 14:16:13 with confidence 0.3018
+2025-11-06 14:16:13,196 - 127.0.0.1 - - [06/Nov/2025 14:16:13] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:14,134 - Detected 'manusia' at 2025-11-06 14:16:14 with confidence 0.5189
+2025-11-06 14:16:14,134 - Detected 'manusia' at 2025-11-06 14:16:14 with confidence 0.3144
+2025-11-06 14:16:14,136 - 127.0.0.1 - - [06/Nov/2025 14:16:14] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:14,863 - Detected 'manusia' at 2025-11-06 14:16:14 with confidence 0.5121
+2025-11-06 14:16:14,863 - Detected 'manusia' at 2025-11-06 14:16:14 with confidence 0.3023
+2025-11-06 14:16:14,864 - 127.0.0.1 - - [06/Nov/2025 14:16:14] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:15,501 - Detected 'manusia' at 2025-11-06 14:16:15 with confidence 0.5069
+2025-11-06 14:16:15,501 - Detected 'manusia' at 2025-11-06 14:16:15 with confidence 0.3151
+2025-11-06 14:16:15,502 - 127.0.0.1 - - [06/Nov/2025 14:16:15] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:16,195 - Detected 'manusia' at 2025-11-06 14:16:16 with confidence 0.5197
+2025-11-06 14:16:16,196 - 127.0.0.1 - - [06/Nov/2025 14:16:16] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:16,799 - Detected 'manusia' at 2025-11-06 14:16:16 with confidence 0.5309
+2025-11-06 14:16:16,799 - Detected 'manusia' at 2025-11-06 14:16:16 with confidence 0.3200
+2025-11-06 14:16:16,800 - 127.0.0.1 - - [06/Nov/2025 14:16:16] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:17,474 - Detected 'manusia' at 2025-11-06 14:16:17 with confidence 0.5507
+2025-11-06 14:16:17,475 - Detected 'manusia' at 2025-11-06 14:16:17 with confidence 0.3943
+2025-11-06 14:16:17,475 - Detected 'manusia' at 2025-11-06 14:16:17 with confidence 0.3611
+2025-11-06 14:16:17,476 - 127.0.0.1 - - [06/Nov/2025 14:16:17] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:18,195 - Detected 'manusia' at 2025-11-06 14:16:18 with confidence 0.5520
+2025-11-06 14:16:18,195 - Detected 'manusia' at 2025-11-06 14:16:18 with confidence 0.3452
+2025-11-06 14:16:18,199 - 127.0.0.1 - - [06/Nov/2025 14:16:18] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:18,892 - Detected 'manusia' at 2025-11-06 14:16:18 with confidence 0.5237
+2025-11-06 14:16:18,893 - Detected 'manusia' at 2025-11-06 14:16:18 with confidence 0.3110
+2025-11-06 14:16:18,895 - 127.0.0.1 - - [06/Nov/2025 14:16:18] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:19,729 - Detected 'manusia' at 2025-11-06 14:16:19 with confidence 0.5218
+2025-11-06 14:16:19,729 - Detected 'manusia' at 2025-11-06 14:16:19 with confidence 0.3359
+2025-11-06 14:16:19,730 - 127.0.0.1 - - [06/Nov/2025 14:16:19] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:20,473 - Detected 'manusia' at 2025-11-06 14:16:20 with confidence 0.5152
+2025-11-06 14:16:20,473 - Detected 'manusia' at 2025-11-06 14:16:20 with confidence 0.3335
+2025-11-06 14:16:20,474 - 127.0.0.1 - - [06/Nov/2025 14:16:20] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:21,390 - Detected 'manusia' at 2025-11-06 14:16:21 with confidence 0.5143
+2025-11-06 14:16:21,391 - Detected 'manusia' at 2025-11-06 14:16:21 with confidence 0.3202
+2025-11-06 14:16:21,393 - 127.0.0.1 - - [06/Nov/2025 14:16:21] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:22,388 - Detected 'manusia' at 2025-11-06 14:16:22 with confidence 0.5123
+2025-11-06 14:16:22,389 - Detected 'manusia' at 2025-11-06 14:16:22 with confidence 0.3226
+2025-11-06 14:16:22,390 - 127.0.0.1 - - [06/Nov/2025 14:16:22] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:23,290 - Detected 'manusia' at 2025-11-06 14:16:23 with confidence 0.5296
+2025-11-06 14:16:23,290 - Detected 'manusia' at 2025-11-06 14:16:23 with confidence 0.3227
+2025-11-06 14:16:23,291 - 127.0.0.1 - - [06/Nov/2025 14:16:23] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:24,078 - Detected 'manusia' at 2025-11-06 14:16:24 with confidence 0.5210
+2025-11-06 14:16:24,079 - Detected 'manusia' at 2025-11-06 14:16:24 with confidence 0.3280
+2025-11-06 14:16:24,081 - 127.0.0.1 - - [06/Nov/2025 14:16:24] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:24,859 - Detected 'manusia' at 2025-11-06 14:16:24 with confidence 0.5092
+2025-11-06 14:16:24,860 - Detected 'manusia' at 2025-11-06 14:16:24 with confidence 0.3216
+2025-11-06 14:16:24,863 - 127.0.0.1 - - [06/Nov/2025 14:16:24] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:25,565 - Detected 'manusia' at 2025-11-06 14:16:25 with confidence 0.4964
+2025-11-06 14:16:25,565 - Detected 'manusia' at 2025-11-06 14:16:25 with confidence 0.3172
+2025-11-06 14:16:25,566 - 127.0.0.1 - - [06/Nov/2025 14:16:25] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:26,166 - Detected 'manusia' at 2025-11-06 14:16:26 with confidence 0.5012
+2025-11-06 14:16:26,167 - 127.0.0.1 - - [06/Nov/2025 14:16:26] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:26,831 - Detected 'manusia' at 2025-11-06 14:16:26 with confidence 0.5171
+2025-11-06 14:16:26,832 - Detected 'manusia' at 2025-11-06 14:16:26 with confidence 0.3251
+2025-11-06 14:16:26,833 - 127.0.0.1 - - [06/Nov/2025 14:16:26] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:27,517 - Detected 'manusia' at 2025-11-06 14:16:27 with confidence 0.5058
+2025-11-06 14:16:27,519 - 127.0.0.1 - - [06/Nov/2025 14:16:27] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:29,415 - Detected 'manusia' at 2025-11-06 14:16:29 with confidence 0.5252
+2025-11-06 14:16:29,416 - Detected 'manusia' at 2025-11-06 14:16:29 with confidence 0.3196
+2025-11-06 14:16:29,418 - 127.0.0.1 - - [06/Nov/2025 14:16:29] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:30,228 - Detected 'manusia' at 2025-11-06 14:16:30 with confidence 0.5056
+2025-11-06 14:16:30,229 - 127.0.0.1 - - [06/Nov/2025 14:16:30] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:31,009 - Detected 'manusia' at 2025-11-06 14:16:31 with confidence 0.5244
+2025-11-06 14:16:31,009 - Detected 'manusia' at 2025-11-06 14:16:31 with confidence 0.3184
+2025-11-06 14:16:31,010 - 127.0.0.1 - - [06/Nov/2025 14:16:31] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:31,822 - Detected 'manusia' at 2025-11-06 14:16:31 with confidence 0.5148
+2025-11-06 14:16:31,823 - Detected 'manusia' at 2025-11-06 14:16:31 with confidence 0.3057
+2025-11-06 14:16:31,825 - 127.0.0.1 - - [06/Nov/2025 14:16:31] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:32,752 - Detected 'manusia' at 2025-11-06 14:16:32 with confidence 0.5085
+2025-11-06 14:16:32,753 - Detected 'manusia' at 2025-11-06 14:16:32 with confidence 0.3070
+2025-11-06 14:16:32,753 - 127.0.0.1 - - [06/Nov/2025 14:16:32] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:33,852 - Detected 'manusia' at 2025-11-06 14:16:33 with confidence 0.5214
+2025-11-06 14:16:33,852 - Detected 'manusia' at 2025-11-06 14:16:33 with confidence 0.3396
+2025-11-06 14:16:33,853 - 127.0.0.1 - - [06/Nov/2025 14:16:33] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:34,589 - Detected 'manusia' at 2025-11-06 14:16:34 with confidence 0.5307
+2025-11-06 14:16:34,590 - Detected 'manusia' at 2025-11-06 14:16:34 with confidence 0.3405
+2025-11-06 14:16:34,593 - 127.0.0.1 - - [06/Nov/2025 14:16:34] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:35,325 - Detected 'manusia' at 2025-11-06 14:16:35 with confidence 0.5329
+2025-11-06 14:16:35,326 - Detected 'manusia' at 2025-11-06 14:16:35 with confidence 0.3181
+2025-11-06 14:16:35,327 - 127.0.0.1 - - [06/Nov/2025 14:16:35] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:36,070 - Detected 'manusia' at 2025-11-06 14:16:36 with confidence 0.5351
+2025-11-06 14:16:36,070 - Detected 'manusia' at 2025-11-06 14:16:36 with confidence 0.3340
+2025-11-06 14:16:36,074 - 127.0.0.1 - - [06/Nov/2025 14:16:36] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:36,751 - Detected 'manusia' at 2025-11-06 14:16:36 with confidence 0.5174
+2025-11-06 14:16:36,752 - Detected 'manusia' at 2025-11-06 14:16:36 with confidence 0.3276
+2025-11-06 14:16:36,753 - 127.0.0.1 - - [06/Nov/2025 14:16:36] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:37,397 - Detected 'manusia' at 2025-11-06 14:16:37 with confidence 0.5292
+2025-11-06 14:16:37,398 - Detected 'manusia' at 2025-11-06 14:16:37 with confidence 0.3239
+2025-11-06 14:16:37,399 - 127.0.0.1 - - [06/Nov/2025 14:16:37] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:38,299 - Detected 'manusia' at 2025-11-06 14:16:38 with confidence 0.5204
+2025-11-06 14:16:38,300 - Detected 'manusia' at 2025-11-06 14:16:38 with confidence 0.3290
+2025-11-06 14:16:38,301 - 127.0.0.1 - - [06/Nov/2025 14:16:38] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:39,006 - Detected 'manusia' at 2025-11-06 14:16:39 with confidence 0.5163
+2025-11-06 14:16:39,007 - Detected 'manusia' at 2025-11-06 14:16:39 with confidence 0.3113
+2025-11-06 14:16:39,008 - 127.0.0.1 - - [06/Nov/2025 14:16:39] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:39,607 - Detected 'manusia' at 2025-11-06 14:16:39 with confidence 0.5279
+2025-11-06 14:16:39,607 - Detected 'manusia' at 2025-11-06 14:16:39 with confidence 0.3277
+2025-11-06 14:16:39,608 - 127.0.0.1 - - [06/Nov/2025 14:16:39] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:40,248 - Detected 'manusia' at 2025-11-06 14:16:40 with confidence 0.5167
+2025-11-06 14:16:40,248 - Detected 'manusia' at 2025-11-06 14:16:40 with confidence 0.3171
+2025-11-06 14:16:40,249 - 127.0.0.1 - - [06/Nov/2025 14:16:40] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:41,448 - Detected 'manusia' at 2025-11-06 14:16:41 with confidence 0.5189
+2025-11-06 14:16:41,448 - Detected 'manusia' at 2025-11-06 14:16:41 with confidence 0.3239
+2025-11-06 14:16:41,450 - 127.0.0.1 - - [06/Nov/2025 14:16:41] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:42,083 - Detected 'manusia' at 2025-11-06 14:16:42 with confidence 0.5128
+2025-11-06 14:16:42,083 - Detected 'manusia' at 2025-11-06 14:16:42 with confidence 0.3060
+2025-11-06 14:16:42,085 - 127.0.0.1 - - [06/Nov/2025 14:16:42] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:42,832 - Detected 'manusia' at 2025-11-06 14:16:42 with confidence 0.5117
+2025-11-06 14:16:42,833 - Detected 'manusia' at 2025-11-06 14:16:42 with confidence 0.3080
+2025-11-06 14:16:42,834 - 127.0.0.1 - - [06/Nov/2025 14:16:42] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:43,414 - Detected 'manusia' at 2025-11-06 14:16:43 with confidence 0.5112
+2025-11-06 14:16:43,414 - Detected 'manusia' at 2025-11-06 14:16:43 with confidence 0.3034
+2025-11-06 14:16:43,416 - 127.0.0.1 - - [06/Nov/2025 14:16:43] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:44,648 - Detected 'manusia' at 2025-11-06 14:16:44 with confidence 0.5223
+2025-11-06 14:16:44,648 - Detected 'manusia' at 2025-11-06 14:16:44 with confidence 0.3781
+2025-11-06 14:16:44,648 - Detected 'manusia' at 2025-11-06 14:16:44 with confidence 0.3184
+2025-11-06 14:16:44,650 - 127.0.0.1 - - [06/Nov/2025 14:16:44] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:45,473 - Detected 'manusia' at 2025-11-06 14:16:45 with confidence 0.4862
+2025-11-06 14:16:45,476 - 127.0.0.1 - - [06/Nov/2025 14:16:45] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:46,186 - Detected 'manusia' at 2025-11-06 14:16:46 with confidence 0.5143
+2025-11-06 14:16:46,186 - Detected 'manusia' at 2025-11-06 14:16:46 with confidence 0.4966
+2025-11-06 14:16:46,186 - Detected 'manusia' at 2025-11-06 14:16:46 with confidence 0.4194
+2025-11-06 14:16:46,186 - Detected 'manusia' at 2025-11-06 14:16:46 with confidence 0.3015
+2025-11-06 14:16:46,187 - 127.0.0.1 - - [06/Nov/2025 14:16:46] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:46,942 - Detected 'manusia' at 2025-11-06 14:16:46 with confidence 0.5115
+2025-11-06 14:16:46,942 - Detected 'manusia' at 2025-11-06 14:16:46 with confidence 0.3077
+2025-11-06 14:16:46,943 - 127.0.0.1 - - [06/Nov/2025 14:16:46] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:47,632 - Detected 'manusia' at 2025-11-06 14:16:47 with confidence 0.5007
+2025-11-06 14:16:47,633 - Detected 'manusia' at 2025-11-06 14:16:47 with confidence 0.3036
+2025-11-06 14:16:47,634 - 127.0.0.1 - - [06/Nov/2025 14:16:47] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:48,399 - Detected 'manusia' at 2025-11-06 14:16:48 with confidence 0.5168
+2025-11-06 14:16:48,399 - Detected 'manusia' at 2025-11-06 14:16:48 with confidence 0.3015
+2025-11-06 14:16:48,401 - 127.0.0.1 - - [06/Nov/2025 14:16:48] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:49,283 - Detected 'manusia' at 2025-11-06 14:16:49 with confidence 0.5079
+2025-11-06 14:16:49,283 - Detected 'manusia' at 2025-11-06 14:16:49 with confidence 0.3083
+2025-11-06 14:16:49,284 - 127.0.0.1 - - [06/Nov/2025 14:16:49] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:49,987 - Detected 'manusia' at 2025-11-06 14:16:49 with confidence 0.5069
+2025-11-06 14:16:49,988 - 127.0.0.1 - - [06/Nov/2025 14:16:49] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:50,673 - Detected 'manusia' at 2025-11-06 14:16:50 with confidence 0.5029
+2025-11-06 14:16:50,673 - Detected 'manusia' at 2025-11-06 14:16:50 with confidence 0.3159
+2025-11-06 14:16:50,676 - 127.0.0.1 - - [06/Nov/2025 14:16:50] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:51,546 - Detected 'manusia' at 2025-11-06 14:16:51 with confidence 0.5054
+2025-11-06 14:16:51,550 - 127.0.0.1 - - [06/Nov/2025 14:16:51] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:56,228 - 127.0.0.1 - - [06/Nov/2025 14:16:56] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:56,993 - Detected 'manusia' at 2025-11-06 14:16:56 with confidence 0.3809
+2025-11-06 14:16:56,994 - 127.0.0.1 - - [06/Nov/2025 14:16:56] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:57,719 - Detected 'manusia' at 2025-11-06 14:16:57 with confidence 0.3717
+2025-11-06 14:16:57,719 - Detected 'manusia' at 2025-11-06 14:16:57 with confidence 0.3311
+2025-11-06 14:16:57,719 - Detected 'manusia' at 2025-11-06 14:16:57 with confidence 0.3143
+2025-11-06 14:16:57,720 - 127.0.0.1 - - [06/Nov/2025 14:16:57] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:58,372 - Detected 'manusia' at 2025-11-06 14:16:58 with confidence 0.5411
+2025-11-06 14:16:58,374 - 127.0.0.1 - - [06/Nov/2025 14:16:58] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:59,002 - 127.0.0.1 - - [06/Nov/2025 14:16:59] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:16:59,877 - Detected 'manusia' at 2025-11-06 14:16:59 with confidence 0.3368
+2025-11-06 14:16:59,878 - 127.0.0.1 - - [06/Nov/2025 14:16:59] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:00,719 - 127.0.0.1 - - [06/Nov/2025 14:17:00] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:01,471 - Detected 'manusia' at 2025-11-06 14:17:01 with confidence 0.5638
+2025-11-06 14:17:01,472 - Detected 'manusia' at 2025-11-06 14:17:01 with confidence 0.3531
+2025-11-06 14:17:01,473 - 127.0.0.1 - - [06/Nov/2025 14:17:01] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:02,185 - Detected 'manusia' at 2025-11-06 14:17:02 with confidence 0.4526
+2025-11-06 14:17:02,186 - 127.0.0.1 - - [06/Nov/2025 14:17:02] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:02,815 - 127.0.0.1 - - [06/Nov/2025 14:17:02] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:03,475 - 127.0.0.1 - - [06/Nov/2025 14:17:03] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:04,123 - 127.0.0.1 - - [06/Nov/2025 14:17:04] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:04,764 - Detected 'manusia' at 2025-11-06 14:17:04 with confidence 0.3236
+2025-11-06 14:17:04,765 - 127.0.0.1 - - [06/Nov/2025 14:17:04] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:05,413 - 127.0.0.1 - - [06/Nov/2025 14:17:05] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:06,232 - 127.0.0.1 - - [06/Nov/2025 14:17:06] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:06,829 - Detected 'manusia' at 2025-11-06 14:17:06 with confidence 0.4589
+2025-11-06 14:17:06,830 - Detected 'manusia' at 2025-11-06 14:17:06 with confidence 0.3473
+2025-11-06 14:17:06,831 - 127.0.0.1 - - [06/Nov/2025 14:17:06] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:07,530 - Detected 'manusia' at 2025-11-06 14:17:07 with confidence 0.4064
+2025-11-06 14:17:07,532 - 127.0.0.1 - - [06/Nov/2025 14:17:07] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:08,212 - 127.0.0.1 - - [06/Nov/2025 14:17:08] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:16,907 - 127.0.0.1 - - [06/Nov/2025 14:17:16] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:17,587 - 127.0.0.1 - - [06/Nov/2025 14:17:17] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:18,170 - Detected 'manusia' at 2025-11-06 14:17:18 with confidence 0.4153
+2025-11-06 14:17:18,170 - Detected 'manusia' at 2025-11-06 14:17:18 with confidence 0.3204
+2025-11-06 14:17:18,171 - 127.0.0.1 - - [06/Nov/2025 14:17:18] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:18,871 - 127.0.0.1 - - [06/Nov/2025 14:17:18] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:19,601 - 127.0.0.1 - - [06/Nov/2025 14:17:19] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:20,251 - 127.0.0.1 - - [06/Nov/2025 14:17:20] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:20,996 - 127.0.0.1 - - [06/Nov/2025 14:17:20] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:21,667 - 127.0.0.1 - - [06/Nov/2025 14:17:21] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:22,283 - 127.0.0.1 - - [06/Nov/2025 14:17:22] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:23,063 - 127.0.0.1 - - [06/Nov/2025 14:17:23] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:23,716 - 127.0.0.1 - - [06/Nov/2025 14:17:23] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:24,388 - 127.0.0.1 - - [06/Nov/2025 14:17:24] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:25,657 - 127.0.0.1 - - [06/Nov/2025 14:17:25] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:26,302 - 127.0.0.1 - - [06/Nov/2025 14:17:26] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:26,910 - 127.0.0.1 - - [06/Nov/2025 14:17:26] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:27,482 - 127.0.0.1 - - [06/Nov/2025 14:17:27] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:28,059 - 127.0.0.1 - - [06/Nov/2025 14:17:28] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:28,689 - 127.0.0.1 - - [06/Nov/2025 14:17:28] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:29,352 - 127.0.0.1 - - [06/Nov/2025 14:17:29] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:30,044 - 127.0.0.1 - - [06/Nov/2025 14:17:30] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:30,845 - 127.0.0.1 - - [06/Nov/2025 14:17:30] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:31,724 - Detected 'manusia' at 2025-11-06 14:17:31 with confidence 0.3024
+2025-11-06 14:17:31,725 - 127.0.0.1 - - [06/Nov/2025 14:17:31] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:32,410 - Detected 'manusia' at 2025-11-06 14:17:32 with confidence 0.3588
+2025-11-06 14:17:32,411 - 127.0.0.1 - - [06/Nov/2025 14:17:32] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:33,115 - Detected 'manusia' at 2025-11-06 14:17:33 with confidence 0.5569
+2025-11-06 14:17:33,115 - Detected 'manusia' at 2025-11-06 14:17:33 with confidence 0.4971
+2025-11-06 14:17:33,116 - 127.0.0.1 - - [06/Nov/2025 14:17:33] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:33,710 - Detected 'manusia' at 2025-11-06 14:17:33 with confidence 0.3810
+2025-11-06 14:17:33,710 - 127.0.0.1 - - [06/Nov/2025 14:17:33] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:34,541 - Detected 'manusia' at 2025-11-06 14:17:34 with confidence 0.3268
+2025-11-06 14:17:34,542 - 127.0.0.1 - - [06/Nov/2025 14:17:34] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:35,188 - Detected 'manusia' at 2025-11-06 14:17:35 with confidence 0.5616
+2025-11-06 14:17:35,188 - Detected 'manusia' at 2025-11-06 14:17:35 with confidence 0.4571
+2025-11-06 14:17:35,188 - 127.0.0.1 - - [06/Nov/2025 14:17:35] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:35,878 - Detected 'manusia' at 2025-11-06 14:17:35 with confidence 0.4469
+2025-11-06 14:17:35,878 - Detected 'manusia' at 2025-11-06 14:17:35 with confidence 0.4009
+2025-11-06 14:17:35,878 - Detected 'manusia' at 2025-11-06 14:17:35 with confidence 0.4004
+2025-11-06 14:17:35,878 - Detected 'manusia' at 2025-11-06 14:17:35 with confidence 0.3573
+2025-11-06 14:17:35,878 - Detected 'manusia' at 2025-11-06 14:17:35 with confidence 0.3398
+2025-11-06 14:17:35,878 - 127.0.0.1 - - [06/Nov/2025 14:17:35] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:36,592 - Detected 'manusia' at 2025-11-06 14:17:36 with confidence 0.5198
+2025-11-06 14:17:36,592 - Detected 'manusia' at 2025-11-06 14:17:36 with confidence 0.4557
+2025-11-06 14:17:36,592 - Detected 'manusia' at 2025-11-06 14:17:36 with confidence 0.4406
+2025-11-06 14:17:36,593 - 127.0.0.1 - - [06/Nov/2025 14:17:36] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:37,231 - Detected 'manusia' at 2025-11-06 14:17:37 with confidence 0.3862
+2025-11-06 14:17:37,232 - 127.0.0.1 - - [06/Nov/2025 14:17:37] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:37,872 - 127.0.0.1 - - [06/Nov/2025 14:17:37] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:38,555 - 127.0.0.1 - - [06/Nov/2025 14:17:38] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:39,332 - 127.0.0.1 - - [06/Nov/2025 14:17:39] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:39,970 - Detected 'manusia' at 2025-11-06 14:17:39 with confidence 0.3256
+2025-11-06 14:17:39,973 - 127.0.0.1 - - [06/Nov/2025 14:17:39] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:40,674 - 127.0.0.1 - - [06/Nov/2025 14:17:40] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:41,322 - 127.0.0.1 - - [06/Nov/2025 14:17:41] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:41,918 - Detected 'manusia' at 2025-11-06 14:17:41 with confidence 0.3369
+2025-11-06 14:17:41,918 - Detected 'manusia' at 2025-11-06 14:17:41 with confidence 0.3029
+2025-11-06 14:17:41,919 - 127.0.0.1 - - [06/Nov/2025 14:17:41] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:42,528 - Detected 'manusia' at 2025-11-06 14:17:42 with confidence 0.3766
+2025-11-06 14:17:42,529 - 127.0.0.1 - - [06/Nov/2025 14:17:42] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:43,185 - Detected 'manusia' at 2025-11-06 14:17:43 with confidence 0.3872
+2025-11-06 14:17:43,185 - Detected 'manusia' at 2025-11-06 14:17:43 with confidence 0.3160
+2025-11-06 14:17:43,186 - 127.0.0.1 - - [06/Nov/2025 14:17:43] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:43,818 - Detected 'manusia' at 2025-11-06 14:17:43 with confidence 0.3953
+2025-11-06 14:17:43,823 - 127.0.0.1 - - [06/Nov/2025 14:17:43] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:45,122 - Detected 'manusia' at 2025-11-06 14:17:45 with confidence 0.5568
+2025-11-06 14:17:45,122 - Detected 'manusia' at 2025-11-06 14:17:45 with confidence 0.4793
+2025-11-06 14:17:45,123 - 127.0.0.1 - - [06/Nov/2025 14:17:45] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:45,721 - Detected 'manusia' at 2025-11-06 14:17:45 with confidence 0.6270
+2025-11-06 14:17:45,721 - Detected 'manusia' at 2025-11-06 14:17:45 with confidence 0.5584
+2025-11-06 14:17:45,721 - Detected 'manusia' at 2025-11-06 14:17:45 with confidence 0.4236
+2025-11-06 14:17:45,721 - Detected 'manusia' at 2025-11-06 14:17:45 with confidence 0.3889
+2025-11-06 14:17:45,721 - Detected 'manusia' at 2025-11-06 14:17:45 with confidence 0.3575
+2025-11-06 14:17:45,722 - 127.0.0.1 - - [06/Nov/2025 14:17:45] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:47,490 - Detected 'manusia' at 2025-11-06 14:17:47 with confidence 0.6329
+2025-11-06 14:17:47,490 - Detected 'manusia' at 2025-11-06 14:17:47 with confidence 0.6102
+2025-11-06 14:17:47,490 - Detected 'manusia' at 2025-11-06 14:17:47 with confidence 0.5039
+2025-11-06 14:17:47,490 - Detected 'manusia' at 2025-11-06 14:17:47 with confidence 0.3927
+2025-11-06 14:17:47,490 - Detected 'manusia' at 2025-11-06 14:17:47 with confidence 0.3576
+2025-11-06 14:17:47,490 - Detected 'manusia' at 2025-11-06 14:17:47 with confidence 0.3488
+2025-11-06 14:17:47,491 - 127.0.0.1 - - [06/Nov/2025 14:17:47] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:48,128 - Detected 'manusia' at 2025-11-06 14:17:48 with confidence 0.4936
+2025-11-06 14:17:48,128 - Detected 'manusia' at 2025-11-06 14:17:48 with confidence 0.4864
+2025-11-06 14:17:48,128 - Detected 'manusia' at 2025-11-06 14:17:48 with confidence 0.3376
+2025-11-06 14:17:48,128 - Detected 'manusia' at 2025-11-06 14:17:48 with confidence 0.3362
+2025-11-06 14:17:48,128 - Detected 'manusia' at 2025-11-06 14:17:48 with confidence 0.3166
+2025-11-06 14:17:48,129 - 127.0.0.1 - - [06/Nov/2025 14:17:48] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:48,753 - Detected 'manusia' at 2025-11-06 14:17:48 with confidence 0.5646
+2025-11-06 14:17:48,753 - Detected 'manusia' at 2025-11-06 14:17:48 with confidence 0.4941
+2025-11-06 14:17:48,753 - Detected 'manusia' at 2025-11-06 14:17:48 with confidence 0.3858
+2025-11-06 14:17:48,753 - Detected 'manusia' at 2025-11-06 14:17:48 with confidence 0.3193
+2025-11-06 14:17:48,754 - 127.0.0.1 - - [06/Nov/2025 14:17:48] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:49,824 - 127.0.0.1 - - [06/Nov/2025 14:17:49] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:50,592 - Detected 'manusia' at 2025-11-06 14:17:50 with confidence 0.3169
+2025-11-06 14:17:50,593 - 127.0.0.1 - - [06/Nov/2025 14:17:50] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:51,480 - 127.0.0.1 - - [06/Nov/2025 14:17:51] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:52,292 - 127.0.0.1 - - [06/Nov/2025 14:17:52] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:53,039 - 127.0.0.1 - - [06/Nov/2025 14:17:53] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:53,746 - 127.0.0.1 - - [06/Nov/2025 14:17:53] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:54,693 - 127.0.0.1 - - [06/Nov/2025 14:17:54] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:55,273 - 127.0.0.1 - - [06/Nov/2025 14:17:55] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:56,022 - 127.0.0.1 - - [06/Nov/2025 14:17:56] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:56,743 - 127.0.0.1 - - [06/Nov/2025 14:17:56] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:57,393 - 127.0.0.1 - - [06/Nov/2025 14:17:57] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:17:58,062 - 127.0.0.1 - - [06/Nov/2025 14:17:58] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:00,109 - 127.0.0.1 - - [06/Nov/2025 14:18:00] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:00,754 - 127.0.0.1 - - [06/Nov/2025 14:18:00] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:01,452 - 127.0.0.1 - - [06/Nov/2025 14:18:01] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:02,061 - Detected 'manusia' at 2025-11-06 14:18:02 with confidence 0.3427
+2025-11-06 14:18:02,061 - Detected 'manusia' at 2025-11-06 14:18:02 with confidence 0.3109
+2025-11-06 14:18:02,062 - 127.0.0.1 - - [06/Nov/2025 14:18:02] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:02,748 - 127.0.0.1 - - [06/Nov/2025 14:18:02] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:03,500 - 127.0.0.1 - - [06/Nov/2025 14:18:03] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:04,125 - 127.0.0.1 - - [06/Nov/2025 14:18:04] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:05,076 - Detected 'manusia' at 2025-11-06 14:18:05 with confidence 0.3866
+2025-11-06 14:18:05,077 - 127.0.0.1 - - [06/Nov/2025 14:18:05] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:06,501 - Detected 'manusia' at 2025-11-06 14:18:06 with confidence 0.3209
+2025-11-06 14:18:06,503 - 127.0.0.1 - - [06/Nov/2025 14:18:06] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:07,167 - 127.0.0.1 - - [06/Nov/2025 14:18:07] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:07,905 - 127.0.0.1 - - [06/Nov/2025 14:18:07] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:08,599 - 127.0.0.1 - - [06/Nov/2025 14:18:08] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:09,498 - 127.0.0.1 - - [06/Nov/2025 14:18:09] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:10,114 - 127.0.0.1 - - [06/Nov/2025 14:18:10] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:10,890 - 127.0.0.1 - - [06/Nov/2025 14:18:10] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:11,707 - Detected 'manusia' at 2025-11-06 14:18:11 with confidence 0.4106
+2025-11-06 14:18:11,707 - Detected 'manusia' at 2025-11-06 14:18:11 with confidence 0.3106
+2025-11-06 14:18:11,708 - 127.0.0.1 - - [06/Nov/2025 14:18:11] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:12,588 - 127.0.0.1 - - [06/Nov/2025 14:18:12] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:13,667 - Detected 'manusia' at 2025-11-06 14:18:13 with confidence 0.4046
+2025-11-06 14:18:13,667 - Detected 'manusia' at 2025-11-06 14:18:13 with confidence 0.4011
+2025-11-06 14:18:13,668 - 127.0.0.1 - - [06/Nov/2025 14:18:13] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:14,296 - 127.0.0.1 - - [06/Nov/2025 14:18:14] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:14,885 - 127.0.0.1 - - [06/Nov/2025 14:18:14] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:15,976 - 127.0.0.1 - - [06/Nov/2025 14:18:15] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:16,661 - 127.0.0.1 - - [06/Nov/2025 14:18:16] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:17,590 - 127.0.0.1 - - [06/Nov/2025 14:18:17] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:19,060 - 127.0.0.1 - - [06/Nov/2025 14:18:19] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:19,710 - Detected 'manusia' at 2025-11-06 14:18:19 with confidence 0.4498
+2025-11-06 14:18:19,711 - 127.0.0.1 - - [06/Nov/2025 14:18:19] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:20,474 - 127.0.0.1 - - [06/Nov/2025 14:18:20] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:21,366 - 127.0.0.1 - - [06/Nov/2025 14:18:21] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:22,206 - 127.0.0.1 - - [06/Nov/2025 14:18:22] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:22,945 - 127.0.0.1 - - [06/Nov/2025 14:18:22] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:23,840 - 127.0.0.1 - - [06/Nov/2025 14:18:23] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:24,630 - 127.0.0.1 - - [06/Nov/2025 14:18:24] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:25,403 - 127.0.0.1 - - [06/Nov/2025 14:18:25] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:26,203 - 127.0.0.1 - - [06/Nov/2025 14:18:26] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:26,939 - 127.0.0.1 - - [06/Nov/2025 14:18:26] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:27,742 - 127.0.0.1 - - [06/Nov/2025 14:18:27] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:28,346 - 127.0.0.1 - - [06/Nov/2025 14:18:28] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:28,929 - 127.0.0.1 - - [06/Nov/2025 14:18:28] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:29,677 - Detected 'manusia' at 2025-11-06 14:18:29 with confidence 0.3796
+2025-11-06 14:18:29,678 - 127.0.0.1 - - [06/Nov/2025 14:18:29] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:30,568 - 127.0.0.1 - - [06/Nov/2025 14:18:30] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:31,471 - 127.0.0.1 - - [06/Nov/2025 14:18:31] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:32,100 - 127.0.0.1 - - [06/Nov/2025 14:18:32] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:32,753 - Detected 'manusia' at 2025-11-06 14:18:32 with confidence 0.4646
+2025-11-06 14:18:32,754 - 127.0.0.1 - - [06/Nov/2025 14:18:32] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:33,536 - Detected 'manusia' at 2025-11-06 14:18:33 with confidence 0.4329
+2025-11-06 14:18:33,537 - 127.0.0.1 - - [06/Nov/2025 14:18:33] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:34,226 - Detected 'manusia' at 2025-11-06 14:18:34 with confidence 0.6089
+2025-11-06 14:18:34,226 - Detected 'manusia' at 2025-11-06 14:18:34 with confidence 0.5415
+2025-11-06 14:18:34,227 - Detected 'manusia' at 2025-11-06 14:18:34 with confidence 0.3662
+2025-11-06 14:18:34,228 - 127.0.0.1 - - [06/Nov/2025 14:18:34] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:18:34,852 - Detected 'manusia' at 2025-11-06 14:18:34 with confidence 0.5090
+2025-11-06 14:18:34,852 - Detected 'manusia' at 2025-11-06 14:18:34 with confidence 0.5068
+2025-11-06 14:18:34,852 - Detected 'manusia' at 2025-11-06 14:18:34 with confidence 0.4577
+2025-11-06 14:18:34,853 - 127.0.0.1 - - [06/Nov/2025 14:18:34] "POST /detect HTTP/1.1" 200 -
+2025-11-06 14:23:27,583 -  * Detected change in '/Users/rizkynindra.sukma/PycharmProjects/squadrone/app2.py', reloading
+2025-11-06 14:23:28,391 -  * Restarting with stat
