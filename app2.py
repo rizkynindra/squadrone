@@ -31,11 +31,11 @@ def serve_audio(filename):
     return send_from_directory('audio', filename)
 
 # Load YOLO model
-model = YOLO('model/best_26102025.pt')
+model = YOLO('model/best_rtdetr.pt')
 
 #use GPU
-# model.to('cuda')
-# print(f"YOLO model loaded on device: {model.device}")
+model.to('cuda')
+print(f"YOLO model loaded on device: {model.device}")
 
 # Model configuration
 CONFIDENCE_THRESHOLD = 0.3 # Lower confidence threshold for better detection
@@ -176,4 +176,4 @@ def reset_alarm():
 
 if __name__ == '__main__':
     # Use threaded mode for better performance
-    app.run(debug=True, host='0.0.0.0', port=5000, threaded=True)
+    app.run(debug=True, host='0.0.0.0', port=5001, threaded=True)
