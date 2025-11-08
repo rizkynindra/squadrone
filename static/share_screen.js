@@ -25,7 +25,7 @@ let latestDetections = [];
 let manusiaLogs = [];
 
 const humanDetectionAudio = new Audio('/audio/star_trek.mp3');
-const MIN_DETECTION_INTERVAL = 100; // ms between detection requests
+const MIN_DETECTION_INTERVAL = 10000; // ms between detection requests
 
 toggleBoundingBoxButton.addEventListener('click', function() {
     showAllBoundingBoxes = !showAllBoundingBoxes;
@@ -180,6 +180,12 @@ async function detectObjects() {
             throw new Error(result.error || 'Detection failed');
         }
 
+        // Enable/disable panic button based on human_detected flag
+        const panicBtn = document.getElementById('panic-btn');
+        if (panicBtn) {
+            panicBtn.disabled = !result.human_detected;
+        }
+
     } catch (error) {
         console.error('Error in detection:', error);
         statusElement.textContent = `Error: ${error.message}`;
@@ -233,7 +239,7 @@ function playAlarmFor3Seconds() {
         humanDetectionAudio.pause();
         humanDetectionAudio.currentTime = 0;
         alarmTimeoutId = null;
-    }, 10000);
+    }, 1);
 }
 
 // Display detection results, focusing on 'manusia' class array version
@@ -266,6 +272,7 @@ function displayDetectionResults(result) {
     }
 
     detectionResults.innerHTML = html;
+
 }
 
 function drawDetectionBoxes(detections) {
@@ -295,3 +302,17 @@ function drawDetectionBoxes(detections) {
         }
     });
 }
+
+// Panic button handler
+document.addEventListener('DOMContentLoaded', function() {
+    const panicBtn = document.getElementById('panic-btn');
+    if (panicBtn) {
+        panicBtn.disabled = true;
+        panicBtn.addEventListener('click', function() {
+            fetch('/panic', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => alert(data.message || data.error));
+        });
+    }
+});
+

@@ -10,6 +10,10 @@ import torch
 import logging
 from datetime import datetime
 import requests
+import os
+
+WAHA_TOKEN = os.getenv('WAHA_TOKEN')
+WAHA_SESSION = os.getenv('WAHA_SESSION')
 
 # Configure logging for manusia detection
 logging.basicConfig(
@@ -17,6 +21,28 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(message)s'
 )
+
+# response = requests.post(url, json=data, headers=headers)
+# print(response.json())
+
+def send_whatsapp_message(phone_number, message):
+    url = "https://waha-mq4x4bgkgjsm.anakit.sumopod.my.id/api/sendText"  # Adjust to your WAHA API endpoint
+    headers = {
+        "Content-Type": "application/json",
+        "X-Api-Key": f"{WAHA_TOKEN}"
+    }
+    data = {
+        "session": f"{WAHA_SESSION}",
+        "chatId": "6285121013271@c.us",
+        "text": message
+    }
+    try:
+        response = requests.post(url, json=data, headers=headers)
+        response.raise_for_status()
+        return response.json()
+    except Exception as e:
+        print(f"Failed to send WhatsApp message: {e}")
+        return None
 
 print(f"PyTorch CUDA available: {torch.cuda.is_available()}")
 print(f"CUDA device count: {torch.cuda.device_count()}")
@@ -41,7 +67,7 @@ model.to('cuda')
 print(f"model loaded on device: {model.device}")
 
 # Model configuration
-CONFIDENCE_THRESHOLD = 0.4 # Lower confidence threshold for better detection
+CONFIDENCE_THRESHOLD = 0.35 # Lower confidence threshold for better detection
 IMAGE_SIZE = 320  # Smaller inference size can improve performance
 
 # Human detection tracking
@@ -104,6 +130,8 @@ def detect():
                 if class_name.lower() == 'manusia':
                     detection_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                     logging.info(f"Detected 'manusia' at {detection_time} with confidence {score:.4f}")
+                    # Send WhatsApp message
+                    # send_whatsapp_message("1111111111", f"Manusia detected at {detection_time}!")
 
                 # Check if this is a human/person detection
                 if class_name.lower() == 'manusia':
@@ -124,7 +152,8 @@ def detect():
             'success': True,
             'detections': detections,
             'processing_time_ms': round(processing_time * 1000, 2),
-            'alarm': alarm_status
+            'alarm': alarm_status,
+            'human_detected': human_detected
         })
 
     except Exception as e:
@@ -175,6 +204,19 @@ def reset_alarm():
     """Endpoint to manually reset the alarm"""
     reset_human_detection()
     return jsonify({'success': True})
+
+@app.route('/panic', methods=['POST'])
+def panic():
+    try:
+        detection_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        result = send_whatsapp_message("6285121013271", f"Manusia detected at {detection_time}!")
+        if result:
+            return jsonify({'success': True, 'message': 'Pesan Telah Terkirim'})
+        else:
+            return jsonify({'success': False, 'message': 'Gagal mengirim pesan'}), 500
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 
 
 if __name__ == '__main__':

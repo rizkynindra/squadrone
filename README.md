@@ -9,6 +9,7 @@ Changelog v1.0.3:
 - change confidence level to 0.4 (avoid wrong detection for 'manusia').
 - **add compatibility to use GPU on Windows OS.**
 - add clear log button.
+- Add panic button to sent the log to whatsapp.
 
 [![Result](https://github.com/rizkynindra/squadrone/blob/main/result/01.mp4)]
 
