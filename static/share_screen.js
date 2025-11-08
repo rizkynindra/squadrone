@@ -23,6 +23,7 @@ let alarmTimeoutId = null;
 let showAllBoundingBoxes = false;
 let latestDetections = [];
 let manusiaLogs = [];
+let panicEnabled = false;
 
 const humanDetectionAudio = new Audio('/audio/star_trek.mp3');
 const MIN_DETECTION_INTERVAL = 10000; // ms between detection requests
@@ -170,10 +171,18 @@ async function detectObjects() {
                 playAlarmFor3Seconds();
                 document.getElementById('clearLogButton').disabled = false;
                 document.getElementById('clearLogButton').addEventListener('click', function() {
-                manusiaLogs = [];
-                detectionResults.innerHTML = '<h3>Detection Results</h3><p>No manusia detected.</p>';
-                this.disabled = true;
+                    manusiaLogs = [];
+                    detectionResults.innerHTML = '<h3>Detection Results</h3><p>No manusia detected.</p>';
+                    this.disabled = true;
                 });
+                // Enable panic button permanently after first detection
+                if (!panicEnabled) {
+                    const panicBtn = document.getElementById('panic-btn');
+                    if (panicBtn) {
+                        panicBtn.disabled = false;
+                        panicEnabled = true;
+                    }
+                }
             }
         } else {
             document.getElementById('clearLogButton').disabled = true;
@@ -181,10 +190,10 @@ async function detectObjects() {
         }
 
         // Enable/disable panic button based on human_detected flag
-        const panicBtn = document.getElementById('panic-btn');
-        if (panicBtn) {
-            panicBtn.disabled = !result.human_detected;
-        }
+//        const panicBtn = document.getElementById('panic-btn');
+//        if (panicBtn) {
+//            panicBtn.disabled = !result.human_detected;
+//        }
 
     } catch (error) {
         console.error('Error in detection:', error);
@@ -239,7 +248,7 @@ function playAlarmFor3Seconds() {
         humanDetectionAudio.pause();
         humanDetectionAudio.currentTime = 0;
         alarmTimeoutId = null;
-    }, 1);
+    }, 5000); // 5 seconds
 }
 
 // Display detection results, focusing on 'manusia' class array version
@@ -306,13 +315,45 @@ function drawDetectionBoxes(detections) {
 // Panic button handler
 document.addEventListener('DOMContentLoaded', function() {
     const panicBtn = document.getElementById('panic-btn');
+    let holdTimer = null;
+    let holdStart = null;
+
     if (panicBtn) {
         panicBtn.disabled = true;
-        panicBtn.addEventListener('click', function() {
-            fetch('/panic', { method: 'POST' })
-                .then(res => res.json())
-                .then(data => alert(data.message || data.error));
-        });
+//        panicBtn.addEventListener('click', function() {
+//            fetch('/panic', { method: 'POST' })
+//                .then(res => res.json())
+//                .then(data => alert(data.message || data.error));
+//        });
+        const startHold = () => {
+            if (panicBtn.disabled) return;
+            holdStart = Date.now();
+            holdTimer = setTimeout(() => {
+                fetch('/panic', { method: 'POST' })
+                    .then(res => res.json())
+                    .then(data => alert(data.message || data.error));
+                holdTimer = null;
+            }, 3000); // 3 seconds
+        };
+
+        const cancelHold = () => {
+            if (holdTimer) {
+                clearTimeout(holdTimer);
+                holdTimer = null;
+                const held = ((Date.now() - holdStart) / 1000).toFixed(1);
+                if (held < 3) {
+                    alert(`Hold for 3 seconds to send panic message. You held for ${held} seconds.`);
+                }
+            }
+        };
+
+        panicBtn.addEventListener('mousedown', startHold);
+        panicBtn.addEventListener('touchstart', startHold);
+
+        panicBtn.addEventListener('mouseup', cancelHold);
+        panicBtn.addEventListener('mouseleave', cancelHold);
+        panicBtn.addEventListener('touchend', cancelHold);
+        panicBtn.addEventListener('touchcancel', cancelHold);
     }
 });
 

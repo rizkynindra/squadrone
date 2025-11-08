@@ -117913,3 +117913,297 @@
 2025-11-08 20:39:22,905 - 127.0.0.1 - - [08/Nov/2025 20:39:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-11-08 20:39:22,976 - 127.0.0.1 - - [08/Nov/2025 20:39:22] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
 2025-11-08 20:39:22,980 - 127.0.0.1 - - [08/Nov/2025 20:39:22] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 20:52:30,975 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.166.16:5000
+2025-11-08 20:52:30,975 - [33mPress CTRL+C to quit[0m
+2025-11-08 20:52:30,986 -  * Restarting with watchdog (windowsapi)
+2025-11-08 20:52:36,454 -  * Debugger is active!
+2025-11-08 20:52:36,461 -  * Debugger PIN: 294-289-924
+2025-11-08 20:52:43,666 - 127.0.0.1 - - [08/Nov/2025 20:52:43] "GET / HTTP/1.1" 200 -
+2025-11-08 20:52:43,768 - 127.0.0.1 - - [08/Nov/2025 20:52:43] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 20:52:43,838 - 127.0.0.1 - - [08/Nov/2025 20:52:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 20:52:43,884 - 127.0.0.1 - - [08/Nov/2025 20:52:43] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 20:52:44,297 - 127.0.0.1 - - [08/Nov/2025 20:52:44] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 20:53:50,765 - 127.0.0.1 - - [08/Nov/2025 20:53:50] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:53:51,438 - 127.0.0.1 - - [08/Nov/2025 20:53:51] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:54:01,341 - 127.0.0.1 - - [08/Nov/2025 20:54:01] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:54:11,241 - 127.0.0.1 - - [08/Nov/2025 20:54:11] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:54:21,323 - 127.0.0.1 - - [08/Nov/2025 20:54:21] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:54:31,270 - 127.0.0.1 - - [08/Nov/2025 20:54:31] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:54:41,194 - 127.0.0.1 - - [08/Nov/2025 20:54:41] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:54:51,365 - 127.0.0.1 - - [08/Nov/2025 20:54:51] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:55:01,249 - 127.0.0.1 - - [08/Nov/2025 20:55:01] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:55:11,205 - 127.0.0.1 - - [08/Nov/2025 20:55:11] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:55:21,233 - 127.0.0.1 - - [08/Nov/2025 20:55:21] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:55:31,219 - 127.0.0.1 - - [08/Nov/2025 20:55:31] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:55:41,206 - 127.0.0.1 - - [08/Nov/2025 20:55:41] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:55:51,296 - 127.0.0.1 - - [08/Nov/2025 20:55:51] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:56:01,232 - 127.0.0.1 - - [08/Nov/2025 20:56:01] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:56:04,042 - 127.0.0.1 - - [08/Nov/2025 20:56:04] "GET / HTTP/1.1" 200 -
+2025-11-08 20:56:04,097 - 127.0.0.1 - - [08/Nov/2025 20:56:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 20:56:04,101 - 127.0.0.1 - - [08/Nov/2025 20:56:04] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 20:56:04,507 - 127.0.0.1 - - [08/Nov/2025 20:56:04] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 20:56:04,512 - 127.0.0.1 - - [08/Nov/2025 20:56:04] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 20:58:00,949 - 127.0.0.1 - - [08/Nov/2025 20:58:00] "GET / HTTP/1.1" 200 -
+2025-11-08 20:58:01,020 - 127.0.0.1 - - [08/Nov/2025 20:58:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 20:58:01,029 - 127.0.0.1 - - [08/Nov/2025 20:58:01] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 20:58:01,260 - 127.0.0.1 - - [08/Nov/2025 20:58:01] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 20:58:25,849 - 127.0.0.1 - - [08/Nov/2025 20:58:25] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:58:35,900 - 127.0.0.1 - - [08/Nov/2025 20:58:35] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:58:45,993 - 127.0.0.1 - - [08/Nov/2025 20:58:45] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:58:55,886 - 127.0.0.1 - - [08/Nov/2025 20:58:55] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:59:05,972 - 127.0.0.1 - - [08/Nov/2025 20:59:05] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:59:15,994 - 127.0.0.1 - - [08/Nov/2025 20:59:15] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:59:25,984 - 127.0.0.1 - - [08/Nov/2025 20:59:25] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:59:35,917 - 127.0.0.1 - - [08/Nov/2025 20:59:35] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:59:45,987 - 127.0.0.1 - - [08/Nov/2025 20:59:45] "POST /detect HTTP/1.1" 200 -
+2025-11-08 20:59:56,121 - 127.0.0.1 - - [08/Nov/2025 20:59:56] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:00:06,173 - 127.0.0.1 - - [08/Nov/2025 21:00:06] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:00:16,031 - 127.0.0.1 - - [08/Nov/2025 21:00:16] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:00:25,955 - 127.0.0.1 - - [08/Nov/2025 21:00:25] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:00:35,980 - 127.0.0.1 - - [08/Nov/2025 21:00:35] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:00:46,022 - 127.0.0.1 - - [08/Nov/2025 21:00:46] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:00:56,039 - 127.0.0.1 - - [08/Nov/2025 21:00:56] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:01:05,952 - 127.0.0.1 - - [08/Nov/2025 21:01:05] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:01:16,014 - 127.0.0.1 - - [08/Nov/2025 21:01:16] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:01:26,099 - 127.0.0.1 - - [08/Nov/2025 21:01:26] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:01:36,948 - 127.0.0.1 - - [08/Nov/2025 21:01:36] "GET / HTTP/1.1" 200 -
+2025-11-08 21:01:37,030 - 127.0.0.1 - - [08/Nov/2025 21:01:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:01:37,040 - 127.0.0.1 - - [08/Nov/2025 21:01:37] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:01:37,689 - 127.0.0.1 - - [08/Nov/2025 21:01:37] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:01:37,695 - 127.0.0.1 - - [08/Nov/2025 21:01:37] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:04:58,519 - 127.0.0.1 - - [08/Nov/2025 21:04:58] "GET / HTTP/1.1" 200 -
+2025-11-08 21:04:58,587 - 127.0.0.1 - - [08/Nov/2025 21:04:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:04:58,611 - 127.0.0.1 - - [08/Nov/2025 21:04:58] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:04:58,885 - 127.0.0.1 - - [08/Nov/2025 21:04:58] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:05:09,004 - 127.0.0.1 - - [08/Nov/2025 21:05:09] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:05:19,021 - 127.0.0.1 - - [08/Nov/2025 21:05:19] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:05:28,961 - Detected 'manusia' at 2025-11-08 21:05:28 with confidence 0.4913
+2025-11-08 21:05:28,965 - 127.0.0.1 - - [08/Nov/2025 21:05:28] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:05:29,012 - 127.0.0.1 - - [08/Nov/2025 21:05:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-08 21:05:38,953 - 127.0.0.1 - - [08/Nov/2025 21:05:38] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:05:48,938 - 127.0.0.1 - - [08/Nov/2025 21:05:48] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:06:12,021 - 127.0.0.1 - - [08/Nov/2025 21:06:12] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:06:17,338 - 127.0.0.1 - - [08/Nov/2025 21:06:17] "GET / HTTP/1.1" 200 -
+2025-11-08 21:06:17,415 - 127.0.0.1 - - [08/Nov/2025 21:06:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:06:17,428 - 127.0.0.1 - - [08/Nov/2025 21:06:17] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:06:27,735 - 127.0.0.1 - - [08/Nov/2025 21:06:27] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:06:39,722 - 127.0.0.1 - - [08/Nov/2025 21:06:39] "GET / HTTP/1.1" 200 -
+2025-11-08 21:06:39,787 - 127.0.0.1 - - [08/Nov/2025 21:06:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:06:39,797 - 127.0.0.1 - - [08/Nov/2025 21:06:39] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:07:28,221 - 127.0.0.1 - - [08/Nov/2025 21:07:28] "GET / HTTP/1.1" 200 -
+2025-11-08 21:07:28,302 - 127.0.0.1 - - [08/Nov/2025 21:07:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:07:28,308 - 127.0.0.1 - - [08/Nov/2025 21:07:28] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-08 21:07:28,665 - 127.0.0.1 - - [08/Nov/2025 21:07:28] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:07:28,668 - 127.0.0.1 - - [08/Nov/2025 21:07:28] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:07:54,238 - 127.0.0.1 - - [08/Nov/2025 21:07:54] "GET / HTTP/1.1" 200 -
+2025-11-08 21:07:54,306 - 127.0.0.1 - - [08/Nov/2025 21:07:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:07:54,339 - 127.0.0.1 - - [08/Nov/2025 21:07:54] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:08:04,603 - 127.0.0.1 - - [08/Nov/2025 21:08:04] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:08:14,613 - 127.0.0.1 - - [08/Nov/2025 21:08:14] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:08:24,628 - 127.0.0.1 - - [08/Nov/2025 21:08:24] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:08:34,614 - Detected 'manusia' at 2025-11-08 21:08:34 with confidence 0.4416
+2025-11-08 21:08:34,614 - Detected 'manusia' at 2025-11-08 21:08:34 with confidence 0.3702
+2025-11-08 21:08:34,616 - 127.0.0.1 - - [08/Nov/2025 21:08:34] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:08:34,651 - 127.0.0.1 - - [08/Nov/2025 21:08:34] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:08:34,695 - 127.0.0.1 - - [08/Nov/2025 21:08:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-08 21:08:44,638 - 127.0.0.1 - - [08/Nov/2025 21:08:44] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:08:54,620 - 127.0.0.1 - - [08/Nov/2025 21:08:54] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:09:09,057 - 127.0.0.1 - - [08/Nov/2025 21:09:09] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:09:19,043 - Detected 'manusia' at 2025-11-08 21:09:19 with confidence 0.4013
+2025-11-08 21:09:19,044 - Detected 'manusia' at 2025-11-08 21:09:19 with confidence 0.4215
+2025-11-08 21:09:19,046 - 127.0.0.1 - - [08/Nov/2025 21:09:19] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:10:54,008 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\app2.py', reloading
+2025-11-08 21:10:54,010 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\app2.py', reloading
+2025-11-08 21:10:57,227 -  * Restarting with watchdog (windowsapi)
+2025-11-08 21:11:02,766 -  * Debugger is active!
+2025-11-08 21:11:02,771 -  * Debugger PIN: 294-289-924
+2025-11-08 21:11:12,264 - 127.0.0.1 - - [08/Nov/2025 21:11:12] "GET / HTTP/1.1" 200 -
+2025-11-08 21:11:12,473 - 127.0.0.1 - - [08/Nov/2025 21:11:12] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:11:12,479 - 127.0.0.1 - - [08/Nov/2025 21:11:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:11:31,234 - 127.0.0.1 - - [08/Nov/2025 21:11:31] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:11:34,483 - 127.0.0.1 - - [08/Nov/2025 21:11:34] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:11:44,543 - 127.0.0.1 - - [08/Nov/2025 21:11:44] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:11:54,485 - 127.0.0.1 - - [08/Nov/2025 21:11:54] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:12:04,502 - Detected 'manusia' at 2025-11-08 21:12:04 with confidence 0.3786
+2025-11-08 21:12:04,503 - 127.0.0.1 - - [08/Nov/2025 21:12:04] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:12:04,520 - 127.0.0.1 - - [08/Nov/2025 21:12:04] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:12:04,543 - 127.0.0.1 - - [08/Nov/2025 21:12:04] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:12:04,552 - 127.0.0.1 - - [08/Nov/2025 21:12:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-08 21:12:25,008 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\app2.py', reloading
+2025-11-08 21:12:28,456 -  * Restarting with watchdog (windowsapi)
+2025-11-08 21:12:33,368 -  * Debugger is active!
+2025-11-08 21:12:33,372 -  * Debugger PIN: 294-289-924
+2025-11-08 21:14:00,169 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.166.16:5000
+2025-11-08 21:14:00,169 - [33mPress CTRL+C to quit[0m
+2025-11-08 21:14:00,182 -  * Restarting with watchdog (windowsapi)
+2025-11-08 21:14:05,395 -  * Debugger is active!
+2025-11-08 21:14:05,399 -  * Debugger PIN: 294-289-924
+2025-11-08 21:14:09,890 - 127.0.0.1 - - [08/Nov/2025 21:14:09] "GET / HTTP/1.1" 200 -
+2025-11-08 21:14:10,075 - 127.0.0.1 - - [08/Nov/2025 21:14:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:14:10,078 - 127.0.0.1 - - [08/Nov/2025 21:14:10] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-08 21:14:23,921 - 127.0.0.1 - - [08/Nov/2025 21:14:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:14:23,935 - 127.0.0.1 - - [08/Nov/2025 21:14:23] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:14:29,304 - Detected 'manusia' at 2025-11-08 21:14:29 with confidence 0.4335
+2025-11-08 21:14:29,305 - Detected 'manusia' at 2025-11-08 21:14:29 with confidence 0.3573
+2025-11-08 21:14:29,305 - Detected 'manusia' at 2025-11-08 21:14:29 with confidence 0.4807
+2025-11-08 21:14:29,306 - 127.0.0.1 - - [08/Nov/2025 21:14:29] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:14:29,356 - 127.0.0.1 - - [08/Nov/2025 21:14:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-08 21:14:30,383 - 127.0.0.1 - - [08/Nov/2025 21:14:30] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:14:40,316 - 127.0.0.1 - - [08/Nov/2025 21:14:40] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:14:50,319 - 127.0.0.1 - - [08/Nov/2025 21:14:50] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:15:00,371 - 127.0.0.1 - - [08/Nov/2025 21:15:00] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:15:10,318 - Detected 'manusia' at 2025-11-08 21:15:10 with confidence 0.6020
+2025-11-08 21:15:10,319 - 127.0.0.1 - - [08/Nov/2025 21:15:10] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:15:29,835 - 127.0.0.1 - - [08/Nov/2025 21:15:29] "POST /panic HTTP/1.1" 200 -
+2025-11-08 21:15:43,680 - 127.0.0.1 - - [08/Nov/2025 21:15:43] "GET / HTTP/1.1" 200 -
+2025-11-08 21:15:43,737 - 127.0.0.1 - - [08/Nov/2025 21:15:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:15:43,738 - 127.0.0.1 - - [08/Nov/2025 21:15:43] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:17:45,002 - 127.0.0.1 - - [08/Nov/2025 21:17:45] "GET / HTTP/1.1" 200 -
+2025-11-08 21:17:45,064 - 127.0.0.1 - - [08/Nov/2025 21:17:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:17:45,070 - 127.0.0.1 - - [08/Nov/2025 21:17:45] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-08 21:17:45,320 - 127.0.0.1 - - [08/Nov/2025 21:17:45] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:19:30,670 - 127.0.0.1 - - [08/Nov/2025 21:19:30] "GET / HTTP/1.1" 200 -
+2025-11-08 21:19:30,730 - 127.0.0.1 - - [08/Nov/2025 21:19:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:19:30,743 - 127.0.0.1 - - [08/Nov/2025 21:19:30] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-08 21:19:30,988 - 127.0.0.1 - - [08/Nov/2025 21:19:30] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:19:30,992 - 127.0.0.1 - - [08/Nov/2025 21:19:30] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:19:38,001 - 127.0.0.1 - - [08/Nov/2025 21:19:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:19:38,023 - 127.0.0.1 - - [08/Nov/2025 21:19:38] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:20:00,969 - 127.0.0.1 - - [08/Nov/2025 21:20:00] "GET / HTTP/1.1" 200 -
+2025-11-08 21:20:01,028 - 127.0.0.1 - - [08/Nov/2025 21:20:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:20:01,039 - 127.0.0.1 - - [08/Nov/2025 21:20:01] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-08 21:20:01,062 - 127.0.0.1 - - [08/Nov/2025 21:20:01] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:20:04,178 - 127.0.0.1 - - [08/Nov/2025 21:20:04] "POST /panic HTTP/1.1" 200 -
+2025-11-08 21:23:31,213 - 127.0.0.1 - - [08/Nov/2025 21:23:31] "GET / HTTP/1.1" 200 -
+2025-11-08 21:23:31,275 - 127.0.0.1 - - [08/Nov/2025 21:23:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:23:31,284 - 127.0.0.1 - - [08/Nov/2025 21:23:31] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-08 21:23:31,307 - 127.0.0.1 - - [08/Nov/2025 21:23:31] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:26:21,910 - 127.0.0.1 - - [08/Nov/2025 21:26:21] "GET / HTTP/1.1" 200 -
+2025-11-08 21:26:21,969 - 127.0.0.1 - - [08/Nov/2025 21:26:21] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:26:21,986 - 127.0.0.1 - - [08/Nov/2025 21:26:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:26:22,003 - 127.0.0.1 - - [08/Nov/2025 21:26:22] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-08 21:26:22,553 - 127.0.0.1 - - [08/Nov/2025 21:26:22] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:26:56,775 - 127.0.0.1 - - [08/Nov/2025 21:26:56] "POST /panic HTTP/1.1" 200 -
+2025-11-08 21:27:28,638 - 127.0.0.1 - - [08/Nov/2025 21:27:28] "GET / HTTP/1.1" 200 -
+2025-11-08 21:27:28,696 - 127.0.0.1 - - [08/Nov/2025 21:27:28] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:27:28,723 - 127.0.0.1 - - [08/Nov/2025 21:27:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:27:28,733 - 127.0.0.1 - - [08/Nov/2025 21:27:28] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-08 21:27:29,237 - 127.0.0.1 - - [08/Nov/2025 21:27:29] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:27:29,242 - 127.0.0.1 - - [08/Nov/2025 21:27:29] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:27:42,313 - 127.0.0.1 - - [08/Nov/2025 21:27:42] "POST /panic HTTP/1.1" 200 -
+2025-11-08 21:33:07,252 - 127.0.0.1 - - [08/Nov/2025 21:33:07] "GET / HTTP/1.1" 200 -
+2025-11-08 21:33:07,303 - 127.0.0.1 - - [08/Nov/2025 21:33:07] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:33:07,332 - 127.0.0.1 - - [08/Nov/2025 21:33:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:33:07,335 - 127.0.0.1 - - [08/Nov/2025 21:33:07] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-08 21:33:07,865 - 127.0.0.1 - - [08/Nov/2025 21:33:07] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:33:16,743 - 127.0.0.1 - - [08/Nov/2025 21:33:16] "GET / HTTP/1.1" 200 -
+2025-11-08 21:33:16,784 - 127.0.0.1 - - [08/Nov/2025 21:33:16] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:33:16,807 - 127.0.0.1 - - [08/Nov/2025 21:33:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:33:16,812 - 127.0.0.1 - - [08/Nov/2025 21:33:16] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:33:37,989 - Detected 'manusia' at 2025-11-08 21:33:37 with confidence 0.3693
+2025-11-08 21:33:37,990 - 127.0.0.1 - - [08/Nov/2025 21:33:37] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:33:38,061 - 127.0.0.1 - - [08/Nov/2025 21:33:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-08 21:33:49,795 - Detected 'manusia' at 2025-11-08 21:33:49 with confidence 0.5488
+2025-11-08 21:33:49,801 - 127.0.0.1 - - [08/Nov/2025 21:33:49] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:33:59,800 - 127.0.0.1 - - [08/Nov/2025 21:33:59] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:34:10,570 - 127.0.0.1 - - [08/Nov/2025 21:34:10] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:34:19,485 - 127.0.0.1 - - [08/Nov/2025 21:34:19] "POST /panic HTTP/1.1" 200 -
+2025-11-08 21:34:24,750 - 127.0.0.1 - - [08/Nov/2025 21:34:24] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:34:34,797 - 127.0.0.1 - - [08/Nov/2025 21:34:34] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:34:46,405 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\app2.py', reloading
+2025-11-08 21:34:46,406 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\app2.py', reloading
+2025-11-08 21:34:46,409 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\app2.py', reloading
+2025-11-08 21:34:49,144 -  * Restarting with watchdog (windowsapi)
+2025-11-08 21:34:55,982 -  * Debugger is active!
+2025-11-08 21:34:55,988 -  * Debugger PIN: 294-289-924
+2025-11-08 21:34:56,268 - 127.0.0.1 - - [08/Nov/2025 21:34:56] "GET / HTTP/1.1" 200 -
+2025-11-08 21:34:56,387 - 127.0.0.1 - - [08/Nov/2025 21:34:56] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:34:56,570 - 127.0.0.1 - - [08/Nov/2025 21:34:56] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:34:56,573 - 127.0.0.1 - - [08/Nov/2025 21:34:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:34:57,507 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torchvision\\_meta_registrations.py', reloading
+2025-11-08 21:34:58,529 -  * Restarting with watchdog (windowsapi)
+2025-11-08 21:35:05,412 -  * Debugger is active!
+2025-11-08 21:35:05,418 -  * Debugger PIN: 294-289-924
+2025-11-08 21:35:07,491 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\onnx\\ops\\_impl.py', reloading
+2025-11-08 21:35:07,513 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\onnx\\ops\\_symbolic_impl.py', reloading
+2025-11-08 21:35:07,681 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\_dynamo\\config.py', reloading
+2025-11-08 21:35:07,765 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\_functorch\\config.py', reloading
+2025-11-08 21:35:11,087 -  * Restarting with watchdog (windowsapi)
+2025-11-08 21:35:19,289 -  * Debugger is active!
+2025-11-08 21:35:19,310 -  * Debugger PIN: 294-289-924
+2025-11-08 21:35:23,769 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\_inductor\\config.py', reloading
+2025-11-08 21:35:23,907 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\_inductor\\test_operators.py', reloading
+2025-11-08 21:35:24,365 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\distributed\\_functional_collectives.py', reloading
+2025-11-08 21:35:29,684 -  * Restarting with watchdog (windowsapi)
+2025-11-08 21:35:40,027 -  * Debugger is active!
+2025-11-08 21:35:40,085 -  * Debugger PIN: 294-289-924
+2025-11-08 21:35:41,870 - 127.0.0.1 - - [08/Nov/2025 21:35:41] "GET / HTTP/1.1" 200 -
+2025-11-08 21:35:42,450 - 127.0.0.1 - - [08/Nov/2025 21:35:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:35:42,502 - 127.0.0.1 - - [08/Nov/2025 21:35:42] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:35:42,606 - 127.0.0.1 - - [08/Nov/2025 21:35:42] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:35:43,689 - 127.0.0.1 - - [08/Nov/2025 21:35:43] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:35:43,722 - 127.0.0.1 - - [08/Nov/2025 21:35:43] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:35:46,466 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\distributed\\tensor\\_collective_utils.py', reloading
+2025-11-08 21:35:46,552 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\distributed\\fsdp\\_fully_shard\\_fsdp_param.py', reloading
+2025-11-08 21:35:46,556 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\distributed\\fsdp\\_fully_shard\\_fsdp_collectives.py', reloading
+2025-11-08 21:35:46,713 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torch\\_dynamo\\_trace_wrapped_higher_order_op.py', reloading
+2025-11-08 21:35:46,938 -  * Detected change in 'D:\\SIDE\\MACHINE LEARNING PROJECT\\squadrone\\.venv\\Lib\\site-packages\\torchvision\\models\\densenet.py', reloading
+2025-11-08 21:35:49,125 -  * Restarting with watchdog (windowsapi)
+2025-11-08 21:35:53,777 -  * Debugger is active!
+2025-11-08 21:35:53,784 -  * Debugger PIN: 294-289-924
+2025-11-08 21:36:12,482 - Detected 'manusia' at 2025-11-08 21:36:12 with confidence 0.5484
+2025-11-08 21:36:12,486 - 127.0.0.1 - - [08/Nov/2025 21:36:12] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:36:12,599 - 127.0.0.1 - - [08/Nov/2025 21:36:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-08 21:36:15,063 - Detected 'manusia' at 2025-11-08 21:36:15 with confidence 0.3976
+2025-11-08 21:36:15,065 - 127.0.0.1 - - [08/Nov/2025 21:36:15] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:36:25,616 - 127.0.0.1 - - [08/Nov/2025 21:36:25] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:36:30,560 - 127.0.0.1 - - [08/Nov/2025 21:36:30] "POST /panic HTTP/1.1" 200 -
+2025-11-08 21:36:39,940 - 127.0.0.1 - - [08/Nov/2025 21:36:39] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:37:55,070 - 127.0.0.1 - - [08/Nov/2025 21:37:55] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:38:04,937 - 127.0.0.1 - - [08/Nov/2025 21:38:04] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:38:15,082 - 127.0.0.1 - - [08/Nov/2025 21:38:15] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:38:24,980 - Detected 'manusia' at 2025-11-08 21:38:24 with confidence 0.4060
+2025-11-08 21:38:24,982 - 127.0.0.1 - - [08/Nov/2025 21:38:24] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:38:25,187 - 127.0.0.1 - - [08/Nov/2025 21:38:25] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:39:04,248 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.166.16:5000
+2025-11-08 21:39:04,248 - [33mPress CTRL+C to quit[0m
+2025-11-08 21:39:04,259 -  * Restarting with watchdog (windowsapi)
+2025-11-08 21:39:09,132 -  * Debugger is active!
+2025-11-08 21:39:09,136 -  * Debugger PIN: 294-289-924
+2025-11-08 21:39:20,752 - 127.0.0.1 - - [08/Nov/2025 21:39:20] "GET / HTTP/1.1" 200 -
+2025-11-08 21:39:20,884 - 127.0.0.1 - - [08/Nov/2025 21:39:20] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-11-08 21:39:21,012 - 127.0.0.1 - - [08/Nov/2025 21:39:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:39:21,073 - 127.0.0.1 - - [08/Nov/2025 21:39:21] "GET /static/share_screen.js HTTP/1.1" 200 -
+2025-11-08 21:39:37,644 - 127.0.0.1 - - [08/Nov/2025 21:39:37] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:39:41,104 - 127.0.0.1 - - [08/Nov/2025 21:39:41] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:39:51,136 - Detected 'manusia' at 2025-11-08 21:39:51 with confidence 0.5148
+2025-11-08 21:39:51,136 - 127.0.0.1 - - [08/Nov/2025 21:39:51] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:39:51,190 - 127.0.0.1 - - [08/Nov/2025 21:39:51] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:39:51,211 - 127.0.0.1 - - [08/Nov/2025 21:39:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-08 21:39:51,235 - 127.0.0.1 - - [08/Nov/2025 21:39:51] "[35m[1mGET /audio/star_trek.mp3 HTTP/1.1[0m" 206 -
+2025-11-08 21:40:01,169 - 127.0.0.1 - - [08/Nov/2025 21:40:01] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:40:11,193 - Detected 'manusia' at 2025-11-08 21:40:11 with confidence 0.3863
+2025-11-08 21:40:11,193 - Detected 'manusia' at 2025-11-08 21:40:11 with confidence 0.3779
+2025-11-08 21:40:11,193 - Detected 'manusia' at 2025-11-08 21:40:11 with confidence 0.4118
+2025-11-08 21:40:11,196 - 127.0.0.1 - - [08/Nov/2025 21:40:11] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:40:21,239 - Detected 'manusia' at 2025-11-08 21:40:21 with confidence 0.4159
+2025-11-08 21:40:21,240 - 127.0.0.1 - - [08/Nov/2025 21:40:21] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:40:31,152 - 127.0.0.1 - - [08/Nov/2025 21:40:31] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:40:33,053 - 127.0.0.1 - - [08/Nov/2025 21:40:33] "POST /panic HTTP/1.1" 200 -
+2025-11-08 21:40:41,120 - 127.0.0.1 - - [08/Nov/2025 21:40:41] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:40:51,285 - 127.0.0.1 - - [08/Nov/2025 21:40:51] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:41:01,198 - Detected 'manusia' at 2025-11-08 21:41:01 with confidence 0.4645
+2025-11-08 21:41:01,199 - 127.0.0.1 - - [08/Nov/2025 21:41:01] "POST /detect HTTP/1.1" 200 -
+2025-11-08 21:41:07,736 - 127.0.0.1 - - [08/Nov/2025 21:41:07] "GET / HTTP/1.1" 200 -
+2025-11-08 21:41:07,851 - 127.0.0.1 - - [08/Nov/2025 21:41:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-11-08 21:41:07,910 - 127.0.0.1 - - [08/Nov/2025 21:41:07] "[36mGET /static/share_screen.js HTTP/1.1[0m" 304 -
+2025-11-08 21:41:08,030 - 127.0.0.1 - - [08/Nov/2025 21:41:08] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
