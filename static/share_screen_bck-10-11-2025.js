@@ -26,11 +26,7 @@ let manusiaLogs = [];
 let panicEnabled = false;
 
 const humanDetectionAudio = new Audio('/audio/star_trek.mp3');
-const MIN_DETECTION_INTERVAL = 0.5; // ms between detection requests
-
-// Create one offscreen canvas and reuse
-const offscreenCaptureCanvas = document.createElement('canvas');
-const offscreenCaptureCtx = offscreenCaptureCanvas.getContext('2d');
+const MIN_DETECTION_INTERVAL = 10000; // ms between detection requests
 
 toggleBoundingBoxButton.addEventListener('click', function() {
     showAllBoundingBoxes = !showAllBoundingBoxes;
@@ -40,6 +36,7 @@ toggleBoundingBoxButton.addEventListener('click', function() {
 startButton.addEventListener('click', async () => {
     try {
         statusElement.textContent = 'Requesting screen access...';
+
         mediaStream = await navigator.mediaDevices.getDisplayMedia({
             video: { cursor: "always" },
             audio: false
@@ -50,10 +47,6 @@ startButton.addEventListener('click', async () => {
         screenVideo.onloadedmetadata = () => {
             detectionCanvas.width = screenVideo.videoWidth;
             detectionCanvas.height = screenVideo.videoHeight;
-
-            // match offscreen capture canvas size
-            offscreenCaptureCanvas.width = screenVideo.videoWidth;
-            offscreenCaptureCanvas.height = screenVideo.videoHeight;
         };
 
         startButton.disabled = true;
@@ -135,37 +128,33 @@ function stopDetection() {
     }
 }
 
-// Reuse offscreen canvas to capture a frame
 function captureVideoFrame() {
     if (!screenVideo.srcObject) {
         return false;
     }
 
-    offscreenCaptureCtx.drawImage(screenVideo, 0, 0, offscreenCaptureCanvas.width, offscreenCaptureCanvas.height);
+    const canvas = document.createElement('canvas');
+    canvas.width = detectionCanvas.width;
+    canvas.height = detectionCanvas.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(screenVideo, 0, 0, canvas.width, canvas.height);
+    capturedFrame = canvas.toDataURL('image/jpeg', 0.7);
     return true;
 }
 
-// Convert offscreen canvas to JPEG blob and send via multipart/form-data
 async function detectObjects() {
-    if (!captureVideoFrame() || detectionInProgress) {
+    if (!capturedFrame || detectionInProgress) {
         return;
     }
 
-    detectionInProgress = true;
-
     try {
-        const blob = await new Promise(resolve => offscreenCaptureCanvas.toBlob(resolve, 'image/jpeg', 0.6));
-        const form = new FormData();
-        form.append('image', blob, 'frame.jpg');
-
-        const sentAt = performance.now();
+        detectionInProgress = true;
 
         const response = await fetch('/detect', {
             method: 'POST',
-            body: form
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: capturedFrame })
         });
-
-        const recvAt = performance.now();
 
         if (!response.ok) {
             throw new Error(`Server returned ${response.status}`);
@@ -173,14 +162,10 @@ async function detectObjects() {
 
         const result = await response.json();
 
-        // Log round-trip and server timings for debugging
-        console.log('RTT ms:', Math.round(recvAt - sentAt), 'server_infer_ms:', result.inference_time_ms || 'n/a', 'server_total_ms:', result.total_time_ms || 'n/a');
-
         if (result.success) {
             displayDetectionResults(result);
-            latestDetections = result.detections || [];
-
-            // Alarm logic - same as before
+            latestDetections = result.detections;
+            // Alarm logic: check for 'manusia' detection
             const manusiaDetected = result.detections && result.detections.some(d => d.class === 'manusia');
             if (manusiaDetected) {
                 playAlarmFor3Seconds();
@@ -190,6 +175,7 @@ async function detectObjects() {
                     detectionResults.innerHTML = '<h3>Detection Results</h3><p>No manusia detected.</p>';
                     this.disabled = true;
                 });
+                // Enable panic button permanently after first detection
                 if (!panicEnabled) {
                     const panicBtn = document.getElementById('panic-btn');
                     if (panicBtn) {
@@ -198,11 +184,16 @@ async function detectObjects() {
                     }
                 }
             }
-
         } else {
             document.getElementById('clearLogButton').disabled = true;
             throw new Error(result.error || 'Detection failed');
         }
+
+        // Enable/disable panic button based on human_detected flag
+//        const panicBtn = document.getElementById('panic-btn');
+//        if (panicBtn) {
+//            panicBtn.disabled = !result.human_detected;
+//        }
 
     } catch (error) {
         console.error('Error in detection:', error);
@@ -244,9 +235,10 @@ function detectLoop() {
     animationFrameId = requestAnimationFrame(detectLoop);
 }
 
-// Alarm logic and displayed results (unchanged)
+// Alarm logic: always play for 3 seconds per detection
 function playAlarmFor3Seconds() {
-    if (alarmTimeoutId) return;
+    if (alarmTimeoutId) return; // Prevent overlapping alarms
+
     humanAlarm.classList.add('alarm-active');
     humanDetectionAudio.currentTime = 0;
     humanDetectionAudio.play().catch(err => console.log('Audio play error:', err));
@@ -256,13 +248,17 @@ function playAlarmFor3Seconds() {
         humanDetectionAudio.pause();
         humanDetectionAudio.currentTime = 0;
         alarmTimeoutId = null;
-    }, 5000);
+    }, 5000); // 5 seconds
 }
 
 // Display detection results, focusing on 'manusia' class array version
 function displayDetectionResults(result) {
     let html = '<h3>Detection Results</h3>';
-    const manusiaDetections = result.detections ? result.detections.filter(d => d.class === 'manusia') : [];
+
+    const manusiaDetections = result.detections
+        ? result.detections.filter(detection => detection.class === 'manusia')
+        : [];
+
     const now = new Date();
     const pad = n => n.toString().padStart(2, '0');
     const detection_time = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
@@ -276,13 +272,16 @@ function displayDetectionResults(result) {
 
     if (manusiaLogs.length) {
         html += '<ul>';
-        manusiaLogs.forEach(log => { html += `<li>${log}</li>`; });
+        manusiaLogs.forEach(log => {
+            html += `<li>${log}</li>`;
+        });
         html += '</ul>';
     } else {
         html += '<p>No manusia detected.</p>';
     }
 
     detectionResults.innerHTML = html;
+
 }
 
 function drawDetectionBoxes(detections) {
