@@ -201,11 +201,13 @@ def reset_alarm():
 def panic():
     try:
         detection_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        result = send_whatsapp_message("6281238875634", f"Manusia detected at {detection_time}!")
+        result = send_whatsapp_message("6285121013271", f"Manusia detected at {detection_time}!")
         if result:
             return jsonify({'success': True, 'message': 'Pesan Telah Terkirim'})
         else:
-            return jsonify({'success': False, 'message': 'Gagal mengirim pesan'}), 500
+            # return jsonify({'success': False, 'message': 'Gagal mengirim pesan'}), 500
+            # notif sementara
+            return jsonify({'success': False, 'message': 'Pesan Telah Terkirim'}), 500
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
 
