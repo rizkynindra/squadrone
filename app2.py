@@ -9,6 +9,7 @@ import time
 import threading
 from datetime import datetime
 from typing import List, Union
+from flask_cors import CORS
 
 import cv2
 import numpy as np
@@ -52,6 +53,7 @@ waha_logger.addHandler(waha_handler)
 # Flask app
 # -------------------------
 app = Flask(__name__)
+CORS(app)
 app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024  # Limit uploads to 5MB
 
 @app.route('/audio/<path:filename>')
